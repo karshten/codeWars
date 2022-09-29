@@ -10,6 +10,10 @@
 //     O(n!) =
 // }
 let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+// литералы шаблонные строки : ``
+
+
 // sort mutates original array
 // splice mutates original array
 // pop mutates original array
@@ -2290,9 +2294,75 @@ function sortByLanguage(list) {
     })
 }
 
-console.log(sortByLanguage([
-    { firstName: 'Nikau', lastName: 'R.', country: 'New Zealand', continent: 'Oceania', age: 39, language: 'Ruby' },
-    { firstName: 'Precious', lastName: 'G.', country: 'South Africa', continent: 'Africa', age: 22, language: 'JavaScript' },
-    { firstName: 'Maria', lastName: 'S.', country: 'Peru', continent: 'Americas', age: 30, language: 'C' },
-    { firstName: 'Agustin', lastName: 'V.', country: 'Uruguay', continent: 'Americas', age: 19, language: 'JavaScript' }
-]))
+// console.log(sortByLanguage([
+//     { firstName: 'Nikau', lastName: 'R.', country: 'New Zealand', continent: 'Oceania', age: 39, language: 'Ruby' },
+//     { firstName: 'Precious', lastName: 'G.', country: 'South Africa', continent: 'Africa', age: 22, language: 'JavaScript' },
+//     { firstName: 'Maria', lastName: 'S.', country: 'Peru', continent: 'Americas', age: 30, language: 'C' },
+//     { firstName: 'Agustin', lastName: 'V.', country: 'Uruguay', continent: 'Americas', age: 19, language: 'JavaScript' }
+// ]))
+
+function productFib(prod) {
+    const fibonachi = [0, 1]
+    let next = 1
+    let prev = 0
+    while (next < prod) {
+        let nextCopy = next
+        next += prev
+        prev = nextCopy
+        fibonachi.push(next)
+    }
+    for (let i = 0; i < fibonachi.length; i++) {
+        const prevNum = fibonachi[i];
+        const nextNum = fibonachi[i + 1];
+        if (prevNum * nextNum === prod) {
+            return [prevNum, nextNum, true]
+        } else if (prevNum * nextNum > prod) return [prevNum, nextNum, false]
+    }
+}
+
+// console.log(productFib())
+
+// var name = 'j'
+
+// for (var i = 0; i < 10; i++) {
+
+// }
+// console.log(i);
+
+// console.log(Symbol('js'));
+
+// setTimeout(() =>{
+//     console.log('4');
+// }, 0)
+
+// new Promise((resolve, reject) => {
+//     resolve('1')
+// }).then(value => value).then(value => value+1).then(value => console.log(value))
+
+// setTimeout(() =>{
+//     console.log('3');
+// }, 0)
+
+// console.log('2');
+
+// const testArr = [{name: 'oskar'}]
+// const testArr2 = testArr.map(item => JSON.parse(JSON.stringify(item)))
+
+// testArr2[0].name = 'vlad'
+
+// console.log(testArr);
+// console.log(testArr2);
+
+
+// const checkBrackets = (str) => {
+//     let bracketsCount = 0
+
+//     str.split('').forEach((bracket) => {
+//         if (bracket === '(') bracketsCount += 1
+//         else bracketsCount -= 1
+//     })
+
+//     return bracketsCount === 0
+// }
+
+// console.log(checkBrackets('((((())))'));
