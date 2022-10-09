@@ -2354,15 +2354,95 @@ function productFib(prod) {
 // console.log(testArr2);
 
 
-// const checkBrackets = (str) => {
-//     let bracketsCount = 0
+const checkBrackets = (str) => {
+    let brackets = []
+    const bracketsTemplate = {
+        '{': '}',
+        '[': ']',
+        '(': ')',
+    }
+    let output = true
 
-//     str.split('').forEach((bracket) => {
-//         if (bracket === '(') bracketsCount += 1
-//         else bracketsCount -= 1
-//     })
+    str.split('').forEach((bracket) => {
+        if (bracket === '(' || bracket === '[' || bracket === '{') brackets.push(bracket)
+        else if (bracket !== bracketsTemplate[brackets.pop()]) output = false
+    })
 
-//     return bracketsCount === 0
-// }
+    return output
+}
 
-// console.log(checkBrackets('((((())))'));
+// console.log(checkBrackets('([{}])'));
+
+const setFilterForArr = (arr) => {
+    return arr.filter((item, idx) => {
+        return arr.lastIndexOf(item) === idx
+    })
+    // or just use new Set
+}
+
+// console.log(setFilterForArr([1, 2, 2,1,2,3,1,2,1,1,2,2]));
+
+const setFilterForArr2 = (arr) => {
+    return arr.filter((item) => arr.indexOf(item) === arr.lastIndexOf(item))
+}
+
+// console.log(setFilterForArr2([1, 1, 2, 3, 3, 3, 3, 3]));
+
+function sum(arr) {
+    return arr.reduce((acc, num) => acc += num, 0)
+}
+function findEvenIndex(arr) {
+    let results = []
+    arr.forEach((num, idx) => {
+        results.push([sum(arr.slice(0, idx)), idx, sum(arr.slice(idx + 1))])
+    })
+    let output = results.filter(item => {
+        if (item[0] === item[2]) return item
+    })
+    return output.length ? output[0][1] : -1
+}
+
+// console.log(findEvenIndex([20,10,-80,10,10,15,35]));
+
+
+function toRange(arr) {
+    let output = []
+    arr = [...new Set(arr.sort((a, b) => a - b))]
+    arr.map((item, idx) => {
+        if (idx === 0 && item + 1 === arr[idx + 1]) {
+            output.push(item + '_')
+            return item
+        }
+        if (idx === arr.length - 1) {
+            output.push('' + item)
+            return item
+        }
+        if (item + 1 !== arr[idx + 1] && !output.includes(arr[idx + 1] + '')) {
+            output.push(item + ',', arr[idx + 1] + '_')
+            return item
+        }
+    })
+
+    return [...new Set(output)].join('')
+}
+
+// console.log(toRange([1, 3]));
+// console.log(toRange([1, 2, 3, 5, 6, 7]));
+// console.log(toRange([1, 2, 3, 4, 5]));
+
+function longestConsec(strarr, k) {
+    if (k <= 0 || k > strarr.length) {
+        return ""
+    }
+
+    let output = []
+
+    for (let i = 0; i < strarr.length; i++) {
+        let team = strarr.slice(i, i+k)
+        output.push(team.join(''))
+    }
+
+    return output.find(str => str.length === Math.max(...output.map(str => str.length)))
+}
+
+// console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3));
