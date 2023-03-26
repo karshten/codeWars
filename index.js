@@ -1,18 +1,69 @@
+const twoSum = (n, target) => {
+// let res = [] 
+// for (let i = 0; i < n.length; i++) { 
+//   for (let j = i + 1; j < n.length; j++) {
+//     if (n[i] + n[j] === target){ 
+//       res.push(i, j) 
+//     } 
+//   } 
+// } 
+  let newObj = {};
+  for (let i = 0; i < n.length; i++) { 
+    newObj[n[i]] = i;
+  }
+
+  for (let i = 0; i < n.length; i++) { 
+  const diff = target - n[i];
+  if (newObj[diff] && newObj[diff] !== i) {
+    return [i, newObj[diff]]; 
+    }
+  }
+}
+
+// console.log(twoSum([1,2,3,5,6,7], 8));
+
 // Сложности алгортмов {
 //     O(1) = время на выполнение алгоритма не зависит от полученных данных,
-//     O(log n) = Binary search - бинарный поиск (каждый раз делить array на пополам),
+//     O(log2n) = Binary search - бинарный поиск (каждый раз делить array на пополам),
 //     O(n log n) = ,
 //     O(n) = линейный алгоритм,
 //     O(n^2) = Пример : for(...){for(...)}
 //     O(n^2) - не очень так делать, так как количество итераций увеличеваеться 10 => (10 * 10 === 100) итд,
 //     O(n^3) = нельзя такое ипользовать,
 //     O(2^n) = ,
-//     O(n!) =
+//     O(n!) = алгоритм почти никогда не выполнится
 // }
-let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+let letters = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 
 // литералы шаблонные строки : ``
-
 
 // sort mutates original array
 // splice mutates original array
@@ -117,8 +168,8 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 //     }
 //     return arr.filter(n => n !== false).length !== 0 ? arr.filter(n => n !== false) : `${integer} is prime`
 // }
-//
-// console.log(divisors(14)) => [2,7] || num is prime
+
+// console.log(divisors(14))
 
 // const isSquare = (n) => {
 //     let num = Math.abs(Math.floor(Math.sqrt(n)))
@@ -148,14 +199,6 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 // }
 
 // [1, 2, 3, 4, 5, 6, 7, 8, 9, 0] => "(123) 456-7890"
-
-// function spinWords(string){
-//   return string.split(' ').map((s)=>{
-//       return s.length >= 5 ? s.split('').reverse().join('') : s
-//   }).join(' ')
-// }
-//
-// console.log(spinWords('Hey fellow warriors'))
 
 // function abbrevName(name){
 //   return name[0].toUpperCase() + '.' + name[name.indexOf(' ')+1].toUpperCase()
@@ -275,7 +318,7 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 //     })
 //     return xCount === oCount
 // }
-//
+
 // console.log(XO('oxdadasd'))
 
 // function filter_list(l) {
@@ -283,7 +326,7 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 //         return i === 0 || typeof i !== 'string'
 //     })
 // }
-//
+
 // console.log(filter_list([1, 2, 'aasf', '1', '123', 123, 0]))
 
 // function reverseWords(str) {
@@ -291,7 +334,7 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 //         return word.split('').reverse().join("")
 //     }).join(' ')
 // }
-//
+
 // console.log(reverseWords('The quick brown fox jumps over the lazy dog.'))
 
 // class SmallestIntegerFinder {
@@ -301,7 +344,6 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 //       })
 //   }
 // }
-
 
 // var number=function(array){
 //     let finalArr = []
@@ -315,7 +357,7 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 // function solution(str, ending){
 //     return str.slice(-ending.length) === ending
 // }
-//
+
 // console.log(solution('samurai', 'ai'))
 
 // function findOdd(a) {
@@ -399,7 +441,7 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 //     }
 // }
 //
-// console.log(isMerge('codewars', 'cdwr', 'oeas'))
+// console.log(isMerge('codewarss', 'cdwrr', 'oeas'))
 
 // function between(a, b) {
 //     return  [... Array(b - a + 1). keys()]. map(i => i + a)
@@ -526,18 +568,6 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 //
 // console.log(oddOrEven([1,2,3,4]))
 
-// function toCamelCase(str) {
-//     const syms = /[-_]/gi
-//     return syms.test(str) ? str
-//             .replace(syms, ' ')
-//             .split(' ')
-//             .map((item, idx) => idx !== 0 ? item[0].toUpperCase() + item.substr(1) : item)
-//             .join('')
-//         : ''
-// }
-//
-// console.log(toCamelCase("the-stealth-warrior"))
-
 // function digital_root(n) {
 //     let numLength = n.toString().split('').map(s => +s).reduce((num1, num2) => num1 += num2).toString().length
 //     let result = n.toString().split('').map(s => +s).reduce((num1, num2) => num1 += num2)
@@ -656,14 +686,22 @@ let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 // console.log(findOutlier([2, 6, 8, 10, 3]))
 
 function expandedForm(num) {
-	let arrNum = num.toString().split('')
-	if (arrNum.includes('0')) {
-		return arrNum
-	} else {
-		return arrNum.map((item, idx) => {
-			return item + `${arrNum.slice(idx + 1).map(i => '0').join('')}`
-		}).join(' + ')
-	}
+  let arrNum = num.toString().split("");
+  if (arrNum.includes("0")) {
+    return arrNum;
+  } else {
+    return arrNum
+      .map((item, idx) => {
+        return (
+          item +
+          `${arrNum
+            .slice(idx + 1)
+            .map((i) => "0")
+            .join("")}`
+        );
+      })
+      .join(" + ");
+  }
 }
 
 // console.log(expandedForm(10200))
@@ -721,13 +759,13 @@ function expandedForm(num) {
 // console.log(__dirname)
 
 async function fetchObj() {
-	const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-	if (!response.ok) {
-		const message = `An error has occured: ${response.status}`;
-		throw new Error(message);
-	}
-	let data = await response.json()
-	console.log(data.userId)
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    throw new Error(message);
+  }
+  let data = await response.json();
+  console.log(data.userId);
 }
 
 // fetchObj().then(r => r)
@@ -780,93 +818,101 @@ async function fetchObj() {
 // console.log()
 
 const customMap = (arr, funcCB) => {
-	let outputArr = []
-	for (let i = 0; i < arr.length; i++) {
-		outputArr.push(funcCB(arr[i]))
-	}
-	return outputArr
-}
+  let outputArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    outputArr.push(funcCB(arr[i]));
+  }
+  return outputArr;
+};
 const toNameCase = (name) => {
-	return name[0].toUpperCase() + name.slice(1)
-}
+  return name[0].toUpperCase() + name.slice(1);
+};
 // console.log(customMap(['oskar', 'beka', 'pasha'], toNameCase))
 
 const person = {
-	name: 'oskar',
-	age: 15,
-	password: 'tpircSavaJ',
-	acceptedTerm: true,
-	skills: ['cooking', 'coding'],
-	info: {
-		gender: 'male',
-		diseases: ['negative vision', 'skalioz', 'cold']
-	}
-}
+  name: "oskar",
+  age: 15,
+  password: "tpircSavaJ",
+  acceptedTerm: true,
+  skills: ["cooking", "coding"],
+  info: {
+    gender: "male",
+    diseases: ["negative vision", "skalioz", "cold"],
+  },
+};
 const validate = (...funcs) => {
-	let verifyCount = 0
-	return (obj) => {
-		for (let i = 0; i < funcs.length; i++) {
-			funcs[i](obj) === true ? verifyCount++ : null
-		}
-		return verifyCount === funcs.length ? `successfully passed ${verifyCount} verifies` : `need pass ${funcs.length - verifyCount} verifies to continue`
-	}
-}
+  let verifyCount = 0;
+  return (obj) => {
+    for (let i = 0; i < funcs.length; i++) {
+      funcs[i](obj) === true ? verifyCount++ : null;
+    }
+    return verifyCount === funcs.length
+      ? `successfully passed ${verifyCount} verifies`
+      : `need pass ${funcs.length - verifyCount} verifies to continue`;
+  };
+};
 const validAge = (obj) => {
-	return obj.age >= 18
-}
+  return obj.age >= 18;
+};
 const validPassword = (obj) => {
-	return obj.password.length >= 8
-}
+  return obj.password.length >= 8;
+};
 const validTerm = (obj) => {
-	return obj.acceptedTerm
-}
-const validator = validate(validAge, validPassword, validTerm)
+  return obj.acceptedTerm;
+};
+const validator = validate(validAge, validPassword, validTerm);
 // console.log(validator(person))
 
 const products = [
-	{
-		name: 'milk',
-		price: 242,
-		discount: false
-	}, {
-		name: 'salt',
-		price: 145,
-		discount: true
-	}, {
-		name: 'water',
-		price: 54,
-		discount: false
-	}, {
-		name: 'crisps',
-		price: 76,
-		discount: true
-	}, {
-		name: 'meat',
-		price: 470,
-		discount: true
-	}
-]
+  {
+    name: "milk",
+    price: 242,
+    discount: false,
+  },
+  {
+    name: "salt",
+    price: 145,
+    discount: true,
+  },
+  {
+    name: "water",
+    price: 54,
+    discount: false,
+  },
+  {
+    name: "crisps",
+    price: 76,
+    discount: true,
+  },
+  {
+    name: "meat",
+    price: 470,
+    discount: true,
+  },
+];
 const withDiscount = (arr) => {
-	const discount = 10
-	return () => {
-		return arr.map(item => item.discount ? item.price - (item.price / discount) : item.price)
-	}
-}
-const withDiscountProducts = withDiscount(products)
+  const discount = 10;
+  return () => {
+    return arr.map((item) =>
+      item.discount ? item.price - item.price / discount : item.price
+    );
+  };
+};
+const withDiscountProducts = withDiscount(products);
 // console.log(withDiscountProducts())
 
 const greeting = (caption) => {
-	let title = 'Article topic'
-	return function (author) {
-		return `${title}: ${caption}, written by ${author}`
-	}
-}
-const greetingBy = greeting('closure func')
+  let title = "Article topic";
+  return function (author) {
+    return `${title}: ${caption}, written by ${author}`;
+  };
+};
+const greetingBy = greeting("closure func");
 // console.log(greetingBy('oskar'))
 
 //Spread
-const arr1 = [1, 2, 3, '1', '2', '3']
-const copyArr1 = [...arr1]
+const arr1 = [1, 2, 3, "1", "2", "3"];
+const copyArr1 = [...arr1];
 // console.log(copyArr1.map(i=>i*2))
 // console.log(arr1)
 // console.log(arr1)
@@ -874,11 +920,11 @@ const copyArr1 = [...arr1]
 // console.log({...arr1})
 // console.log([...arr1])
 
-const personCopy = { ...person }
-const personCopy2 = Object.assign({}, person)
-const personCopy3 = JSON.parse(JSON.stringify(person)) // best way to copy obj but functions become string (bag)
+const personCopy = { ...person };
+const personCopy2 = Object.assign({}, person);
+const personCopy3 = JSON.parse(JSON.stringify(person)); // best way to copy obj but functions become string (bag)
 // console.log({...person, ...personCopy}) // concat objects
-person.skills.push('dadas') // copied Obj will pushed too
+person.skills.push("dadas"); // copied Obj will pushed too
 // console.log(personCopy)
 // console.log(personCopy3.info.diseases === person.info.diseases)
 // console.log(Object.entries(personCopy3))
@@ -886,8 +932,9 @@ person.skills.push('dadas') // copied Obj will pushed too
 // console.log(Object.values(personCopy3))
 
 //Rest
-function rest(num, ...nums) { // spread operator in args this is Rest operator which create array from ...nums
-	return nums.map(n => n * num)
+function rest(num, ...nums) {
+  // spread operator in args this is Rest operator which create array from ...nums
+  return nums.map((n) => n * num);
 }
 
 //
@@ -895,19 +942,19 @@ function rest(num, ...nums) { // spread operator in args this is Rest operator w
 
 // console.log([1, 2, 3, 4].find(item => item > 2))
 
-let popArr = [1, 2, 3, 4]
-popArr.pop() // remove last item in arr and return it
+let popArr = [1, 2, 3, 4];
+popArr.pop(); // remove last item in arr and return it
 // console.log(popArr)
 
-let unshifttedArr = [1, 2, 3, 4]
-unshifttedArr.unshift(2) // added new item into arr and return arr.length
+let unshifttedArr = [1, 2, 3, 4];
+unshifttedArr.unshift(2); // added new item into arr and return arr.length
 // console.log(unshifttedArr)
 
-let shifttedArr = [1, 2, 3, 4, { name: 'oskar' }]
-shifttedArr.shift() // remove first item in arr and return it
+let shifttedArr = [1, 2, 3, 4, { name: "oskar" }];
+shifttedArr.shift(); // remove first item in arr and return it
 // console.log(shifttedArr)
 
-let concatArr = [1, 2, 3, 4, 5]
+let concatArr = [1, 2, 3, 4, 5];
 // console.log(concatArr.concat([]))
 // console.log(concatArr.concat({}))
 // console.log(concatArr.concat(anyDataTypes))
@@ -915,7 +962,6 @@ let concatArr = [1, 2, 3, 4, 5]
 // console.log(Array.isArray([...document.querySelectorAll('button')]))
 
 // console.log(concatArr.indexOf()) // return index of item which indicated in args
-
 
 // Local Storage is able to use only with STRING data type
 // localStorage.setItem('test', JSON.stringify(person))
@@ -940,42 +986,42 @@ const strippedString = originalString.replace(/(<([^>]+)>)/gi, "");
 // indexedDB
 
 const getData = async () => {
-	const response = await fetch(`https://jsonplaceholder.typicode.com/todos`);
-	const data = await response.json()
+  const response = await fetch(`https://jsonplaceholder.typicode.com/todos`);
+  const data = await response.json();
 
-	data.forEach(item => {
-		const h2 = document.createElement('h2')
-		const p = document.createElement('p')
+  data.forEach((item) => {
+    const h2 = document.createElement("h2");
+    const p = document.createElement("p");
 
-		h2.innerHTML = item.title
-		p.innerHTML = item.id
+    h2.innerHTML = item.title;
+    p.innerHTML = item.id;
 
-		document.body.innerHTML += h2.outerHTML
-		document.body.innerHTML += p.outerHTML
-	})
-}
+    document.body.innerHTML += h2.outerHTML;
+    document.body.innerHTML += p.outerHTML;
+  });
+};
 
 // getData()
 
 // Memoization - caching memo
 
 const func = (...nums) => {
-	return nums[0] + nums[1]
-}
+  return nums[0] + nums[1];
+};
 
 const memoizer = (func) => {
-	let cache = {}
-	return (...n) => {
-		if (cache[n] !== undefined) {
-			return (`${func(...n)} is already cached`)
-		} else {
-			console.log(`${func(...n)} new result`)
-			cache[n] = func(...n)
-			return ''
-		}
-	}
-}
-const testMemo = memoizer(func)
+  let cache = {};
+  return (...n) => {
+    if (cache[n] !== undefined) {
+      return `${func(...n)} is already cached`;
+    } else {
+      console.log(`${func(...n)} new result`);
+      cache[n] = func(...n);
+      return "";
+    }
+  };
+};
+const testMemo = memoizer(func);
 // console.log(testMemo(3, 1))
 // console.log(testMemo(3, 1))
 // console.log(testMemo(4, 1))
@@ -984,16 +1030,30 @@ const testMemo = memoizer(func)
 
 // return masked string
 function maskify(cc) {
-	if (cc.length > 4) {
-		return cc.slice(0, cc.length - 4).split('').map(item => '#').join('') + cc.slice(cc.length - 4)
-	} else return cc
+  if (cc.length > 4) {
+    return (
+      cc
+        .slice(0, cc.length - 4)
+        .split("")
+        .map((item) => "#")
+        .join("") + cc.slice(cc.length - 4)
+    );
+  } else return cc;
 }
 
 // console.log(maskify('oskar1234'))
 function createPhoneNumber(numbers) {
-	return numbers.map((num, idx) => {
-		return idx === 0 ? '(' + num : idx === 2 ? num + ') ' : idx === 5 ? num + '-' : num.toString()
-	}).join('')
+  return numbers
+    .map((num, idx) => {
+      return idx === 0
+        ? "(" + num
+        : idx === 2
+        ? num + ") "
+        : idx === 5
+        ? num + "-"
+        : num.toString();
+    })
+    .join("");
 }
 
 // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
@@ -1020,56 +1080,68 @@ function createPhoneNumber(numbers) {
 // console.log(format('Hello {foo} - {foobar} make me a {bar}... {foo}!!?', obj))
 
 function generateShape(integer) {
-	let str = ''
-	for (let i = 0; i < integer; i++) {
-		str += '+'
-	}
-	return str.split('').map((sym, idx, arr) => {
-		return arr.join('')
-	}).join('\n')
+  let str = "";
+  for (let i = 0; i < integer; i++) {
+    str += "+";
+  }
+  return str
+    .split("")
+    .map((sym, idx, arr) => {
+      return arr.join("");
+    })
+    .join("\n");
 }
 
 function min(arr, toReturn) {
-	let macro = arr.reduce((num1, num2, idx, array) => {
-		return num1 > num2 ? num2 : num1
-	})
-	return toReturn === 'value' ? macro : arr.indexOf(macro)
+  let macro = arr.reduce((num1, num2, idx, array) => {
+    return num1 > num2 ? num2 : num1;
+  });
+  return toReturn === "value" ? macro : arr.indexOf(macro);
 }
 
 // console.log(min([1, 2, 3,], 'i'))
 
 function arrayDiff(a, b) {
-	return a.filter((num, idx, arr) => {
-		return !b.includes(num)
-	})
+  return a.filter((num, idx, arr) => {
+    return !b.includes(num);
+  });
 }
 
 // console.log(arrayDiff([1,2,2], [1]))
 
 var capitals = function (word) {
-	let letters = /[A-Z]/
-	return word.split('').map((l, idx) => {
-		return letters.test(l) ? idx : ''
-	}).join('').split('').map(i => +i)
+  let letters = /[A-Z]/;
+  return word
+    .split("")
+    .map((l, idx) => {
+      return letters.test(l) ? idx : "";
+    })
+    .join("")
+    .split("")
+    .map((i) => +i);
 };
 
 // console.log(capitals('CodEWaRs'))
 
 function insertDash(num) {
-	let result = num.toString().split('').map((n, idx, arr) => {
-		return n % 2 !== 0 && arr[idx + 1] % 2 !== 0 ? n + '-' : n
-	}).join('')
-	if (num % 2 === 0) {
-		return result
-	} else {
-		return result.slice(0, result.length - 1)
-	}
+  let result = num
+    .toString()
+    .split("")
+    .map((n, idx, arr) => {
+      return n % 2 !== 0 && arr[idx + 1] % 2 !== 0 ? n + "-" : n;
+    })
+    .join("");
+  if (num % 2 === 0) {
+    return result;
+  } else {
+    return result.slice(0, result.length - 1);
+  }
 }
 
 let obj = {
-	name: 'Oskar',
-	age: 15
-}
+  name: "Oskar",
+  age: 15,
+};
 // Диструктуризация!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // let {name, age} = obj
 // console.log(name)
@@ -1077,57 +1149,64 @@ let obj = {
 // console.log(insertDash(454793))
 
 function filterHomogenous(arrays) {
-	let res = []
-	for (let arr of arrays) {
-		if (arr.length) {
-			arr.every(item => typeof arr[0] === typeof item) ? res.push(arr) : null
-		}
-	}
-	return res
+  let res = [];
+  for (let arr of arrays) {
+    if (arr.length) {
+      arr.every((item) => typeof arr[0] === typeof item) ? res.push(arr) : null;
+    }
+  }
+  return res;
 }
 
 // console.log(filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]]))
 
 function persistence(num) {
-	let mCount = 0
-	for (let i = 0; num > 9; i++) {
-		mCount++
-		num = num.toString().split('').reduce((n1, n2) => n1 * n2)
-	}
-	return mCount
+  let mCount = 0;
+  for (let i = 0; num > 9; i++) {
+    mCount++;
+    num = num
+      .toString()
+      .split("")
+      .reduce((n1, n2) => n1 * n2);
+  }
+  return mCount;
 }
 
 // console.log(persistence(39))
 
 function rowWeights(array) {
-	let even
-	let odd
-	if (array.length > 1) {
-		even = array.filter((item, idx) => {
-			return idx % 2 === 0
-		}).reduce((n1, n2) => n1 += n2)
+  let even;
+  let odd;
+  if (array.length > 1) {
+    even = array
+      .filter((item, idx) => {
+        return idx % 2 === 0;
+      })
+      .reduce((n1, n2) => (n1 += n2));
 
-		odd = array.filter((item, idx) => {
-			return idx % 2 !== 0
-		}).reduce((n1, n2) => n1 += n2)
-		let result = [odd, even]
-		return result
-	} else {
-		return [+array.join(''), 0]
-	}
+    odd = array
+      .filter((item, idx) => {
+        return idx % 2 !== 0;
+      })
+      .reduce((n1, n2) => (n1 += n2));
+    let result = [odd, even];
+    return result;
+  } else {
+    return [+array.join(""), 0];
+  }
 }
 
 // console.log(rowWeights([80, 40, 30]))
 
 function countSmileys(arr) {
-	let smile = /[)D]/
-	let nose = /[~-]/
-	let eyes = /[)D]/
-	return arr.filter(item => {
-		if (item.length > 2) {
-			return smile.test(item) && eyes.test(item) && nose.test(item)
-		} else return smile.test(item) && eyes.test(item)
-	}).length
+  let smile = /[)D]/;
+  let nose = /[~-]/;
+  let eyes = /[)D]/;
+  return arr.filter((item) => {
+    if (item.length > 2) {
+      return smile.test(item) && eyes.test(item) && nose.test(item);
+    } else return smile.test(item) && eyes.test(item);
+  }).length;
 }
 
 // console.log(countSmileys([':)', ';(', ';}', ':-D']))
@@ -1135,113 +1214,96 @@ function countSmileys(arr) {
 // console.log(countSmileys([';]', ':[', ';*', ':$', ';-D']))
 
 function scrollingText(text) {
-	let res = []
-	for (let i = 0; i < text.length; i++) {
-		res.push(text)
-	}
-	return res
+  let res = [];
+  for (let i = 0; i < text.length; i++) {
+    res.push(text);
+  }
+  return res;
 }
 
 // console.log(scrollingText('abc'))
 
 function sum(a, b) {
-	return a + b
+  return a + b;
 }
 
 function zipWith(fn, a0, a1) {
-	let shorterArr = a0.length > a1.length ? a1 : a0
-	let result = []
-	for (let i = 0; i < shorterArr.length; i++) {
-		result.push(fn(a0[i], a1[i]))
-	}
-	return result
+  let shorterArr = a0.length > a1.length ? a1 : a0;
+  let result = [];
+  for (let i = 0; i < shorterArr.length; i++) {
+    result.push(fn(a0[i], a1[i]));
+  }
+  return result;
 }
 
 // console.log(zipWith(sum, [1,2,3], [1,2,3]))
 
-const arrCheck = value => {
-	return value.length ? value.filter(item => Array.isArray(item)).length === value.length : true
-}
+const arrCheck = (value) => {
+  return value.length
+    ? value.filter((item) => Array.isArray(item)).length === value.length
+    : true;
+};
 
 function box(n) {
-	let side = '-'.repeat(n)
-	let box = [side]
-	for (let i = 0; i < n - 2; i++) {
-		box.push('-' + ' '.repeat(n - 2) + '-')
-	}
-	box.push(side)
-	return box
+  let side = "-".repeat(n);
+  let box = [side];
+  for (let i = 0; i < n - 2; i++) {
+    box.push("-" + " ".repeat(n - 2) + "-");
+  }
+  box.push(side);
+  return box;
 }
 
 // console.log(box(3))
 
 function findMagic(arr) {
-	let result = -1
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] === i) {
-			result = i
-		}
-	}
-	return result
+  let result = -1;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === i) {
+      result = i;
+    }
+  }
+  return result;
 }
-
 
 // console.log(findMagic([-20, -10, 2, 10, 20]))
 
 function flattenAndSort(array) {
-	var result = [];
+  var result = [];
 
-	array.forEach(function (elem) {
-		if (Array.isArray(elem)) {
-			result = result.concat(flattenAndSort(elem));
-		} else {
-			result.push(elem);
-		}
-	});
+  array.forEach(function (elem) {
+    if (Array.isArray(elem)) {
+      result = result.concat(flattenAndSort(elem));
+    } else {
+      result.push(elem);
+    }
+  });
 
-	return result.sort((a, b) => a - b);
+  return result.sort((a, b) => a - b);
 }
 
 // console.log(flattenAndSort([[3, 2, 1], [7, 9, 8], [6, 4, 5]]))
 
-function twoSum(n, target) {
-	// let res = []
-	// for (let i = 0; i < n.length; i++) {
-	//     for (let j = i + 1; j < n.length; j++) {
-	//         if (n[i] + n[j] === target){
-	//             res.push(i, j)
-	//         }
-	//     }
-	// }
-	let newObj = {}
-	for (let i = 0; i < n.length; i++) {
-		newObj[n[i]] = i
-	}
-	for (let i = 0; i < n.length; i++) {
-		const diff = target - n[i]
-		if (newObj[diff] && newObj[diff] !== i) {
-			return [i, newObj[diff]]
-		}
-	}
-	return []
-}
-
-// console.log(twoSum([1,2,3], 4))
-
 function getLengthOfMissingArray(arrayOfArrays) {
-	if (arrayOfArrays === null || arrayOfArrays.includes(null) || !arrayOfArrays.length) {
-		return 0
-	} else {
-		let initialArr = arrayOfArrays.map(item => item.length).sort((a, b) => a - b)
-		if (initialArr.includes(0)) {
-			return 0
-		} else
-			for (let i = initialArr[0]; i <= initialArr.length + i; i++) {
-				if (!initialArr.includes(i)) {
-					return i
-				}
-			}
-	}
+  if (
+    arrayOfArrays === null ||
+    arrayOfArrays.includes(null) ||
+    !arrayOfArrays.length
+  ) {
+    return 0;
+  } else {
+    let initialArr = arrayOfArrays
+      .map((item) => item.length)
+      .sort((a, b) => a - b);
+    if (initialArr.includes(0)) {
+      return 0;
+    } else
+      for (let i = initialArr[0]; i <= initialArr.length + i; i++) {
+        if (!initialArr.includes(i)) {
+          return i;
+        }
+      }
+  }
 }
 
 // console.log(getLengthOfMissingArray([[4],
@@ -1255,296 +1317,336 @@ function getLengthOfMissingArray(arrayOfArrays) {
 // ))
 
 function dataReverse(data) {
-	let arrData = []
-	let spliceCount = data.length / 8
-	for (let i = 0; i < spliceCount; i++) {
-		arrData.push(data.splice(0, 8))
-	}
-	return arrData.reverse().map(item => item.join('')).join('').split('').map(n => +n)
+  let arrData = [];
+  let spliceCount = data.length / 8;
+  for (let i = 0; i < spliceCount; i++) {
+    arrData.push(data.splice(0, 8));
+  }
+  return arrData
+    .reverse()
+    .map((item) => item.join(""))
+    .join("")
+    .split("")
+    .map((n) => +n);
 }
 
 // console.log(dataReverse([1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0]))
 let book = {
-	id: 1,
-	author: 'oskar',
-	price: 780,
-	tite: 'IT way',
-	description: 'How to become the best version of yourself',
-	pagesCount: 245,
-	createDate: '21.06.22'
-}
+  id: 1,
+  author: "oskar",
+  price: 780,
+  tite: "IT way",
+  description: "How to become the best version of yourself",
+  pagesCount: 245,
+  createDate: "21.06.22",
+};
 let meal = {
-	coocker: 'oskar',
-	taste: 'good'
-}
-const hasAuthorInBook = 'author' in book;
-hasTitle = 'tite' in book;
+  coocker: "oskar",
+  taste: "good",
+};
+const hasAuthorInBook = "author" in book;
+hasTitle = "tite" in book;
 
-const hasAuthorInMeal = 'author' in meal;
-hasTasteInMeal = 'taste' in meal
+const hasAuthorInMeal = "author" in meal;
+hasTasteInMeal = "taste" in meal;
 
 // console.log(hasAuthorInBook)
 // console.log(hasAuthorInMeal)
 // console.log(hasTasteInMeal)
 
-let milNums = []
+let milNums = [];
 // for (let i = 1; i < 1000000; i++) {
 //     milNums.push(i)
 // }
 function binarySerach(arr, target) {
-	let mid;
-	let left = 0;
-	let right = arr.length - 1;
+  let mid;
+  let left = 0;
+  let right = arr.length - 1;
 
-	while (left <= right) {
-		console.log('iteration')
-		mid = Math.round((right - left) / 2 + left)
+  while (left <= right) {
+    console.log("iteration");
+    mid = Math.round((right - left) / 2 + left);
 
-		if (target === arr[mid]) {
-			return `index:${mid}; value:${arr[mid]}`
-		} else if (arr[mid] > target) {
-			right = mid - 1 // - 1 by reason of (first if codition) shows that mid !== target
-		} else {
-			left = mid + 1
-		}
-	}
-	return 'none'
+    if (target === arr[mid]) {
+      return `index:${mid}; value:${arr[mid]}`;
+    } else if (arr[mid] > target) {
+      right = mid - 1; // - 1 by reason of (first if codition) shows that mid !== target
+    } else {
+      left = mid + 1;
+    }
+  }
+  return "none";
 }
 
 // console.log(binarySerach(milNums, 999999))
 // console.log(binarySerach([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 8))
 
 function capitalize(s) {
-	let even = s.split('').map((item, idx) => idx % 2 !== 0 ? item.toUpperCase() : item).join('')
-	let odd = s.split('').map((item, idx) => idx % 2 === 0 ? item.toUpperCase() : item).join('')
-	return [odd, even]
-};
+  let even = s
+    .split("")
+    .map((item, idx) => (idx % 2 !== 0 ? item.toUpperCase() : item))
+    .join("");
+  let odd = s
+    .split("")
+    .map((item, idx) => (idx % 2 === 0 ? item.toUpperCase() : item))
+    .join("");
+  return [odd, even];
+}
 
 // console.log(capitalize('abcdef'))
 
 function capitalizeIdx(s, arr) {
-	return [...s].map((item, idx) => {
-		return arr.includes(idx) ? item.toUpperCase() : item
-	}).join('')
-};
+  return [...s]
+    .map((item, idx) => {
+      return arr.includes(idx) ? item.toUpperCase() : item;
+    })
+    .join("");
+}
 
 // console.log(capitalizeIdx('oskar', [1, 2, 4, 100]))
 
 function likeOrDislike(buttons) {
-	let state = 'Nothing';
+  let state = "Nothing";
 
-	for (let i = 0; i < buttons.length; i++) {
-		if (buttons[i] === state) {
-			state = 'Nothing'
-		} else {
-			state = buttons[i]
-		}
-	}
+  for (let i = 0; i < buttons.length; i++) {
+    if (buttons[i] === state) {
+      state = "Nothing";
+    } else {
+      state = buttons[i];
+    }
+  }
 
-	return state
+  return state;
 }
 
 // console.log(likeOrDislike(['Like','Like','Dislike','Like','Like','Like','Like','Dislike']))
 
 function dup(s) {
-	let res = '';
-	let arr = s.join(' ')
+  let res = "";
+  let arr = s.join(" ");
 
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] !== arr[i + 1]) {
-			res += (arr[i])
-		}
-	}
-	return res.split(' ')
-};
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== arr[i + 1]) {
+      res += arr[i];
+    }
+  }
+  return res.split(" ");
+}
 
 // console.log(dup(["ccooddddddewwwaaaaarrrrsssss", "piccaninny", "hubbubbubboo"]))
 
 function solve(a) {
-	return a.filter(item => item % 2 === 0).length - a.filter(item => item % 2 !== 0 && typeof item === 'number').length
-};
+  return (
+    a.filter((item) => item % 2 === 0).length -
+    a.filter((item) => item % 2 !== 0 && typeof item === "number").length
+  );
+}
 
 // console.log(solve(([0, 15,'z',16,'m', 13, 14,'c', 9, 10, 13,'u', 4, 3])))
 
 function solveVowels(s) {
-	let consonats = /[bcdfghjklmnpqrstvwxyz]/g
-	let arr = s.replace(consonats, '-').split('-').map(item => item.length)
-	return Math.max(...arr)
+  let consonats = /[bcdfghjklmnpqrstvwxyz]/g;
+  let arr = s
+    .replace(consonats, "-")
+    .split("-")
+    .map((item) => item.length);
+  return Math.max(...arr);
 }
 
 // console.log(solveVowels('codewarriors'))
 
 function mostLikely(prob1, prob2) {
-	let p1 = prob1.replace(':', ' ').split(' ')
-	let p2 = prob2.replace(':', ' ').split(' ')
-	return p1[0] / p1[1] > p2[0] / p2[1]
+  let p1 = prob1.replace(":", " ").split(" ");
+  let p2 = prob2.replace(":", " ").split(" ");
+  return p1[0] / p1[1] > p2[0] / p2[1];
 }
-
 
 // console.log(mostLikely('5:10', '1:3'))
 
 function points(games) {
-	let res = 0
-	for (let i = 0; i < games.length; i++) {
-		if (games[i][0] > games[i][2]) {
-			res += 3
-		} else if (games[i][0] === games[i][2]) {
-			res += 1
-		}
-	}
-	return res
+  let res = 0;
+  for (let i = 0; i < games.length; i++) {
+    if (games[i][0] > games[i][2]) {
+      res += 3;
+    } else if (games[i][0] === games[i][2]) {
+      res += 1;
+    }
+  }
+  return res;
 }
 
 // console.log(points(["1:0","2:0","3:0","4:0","2:1","1:3","1:4","2:3","2:4","3:4"]))
 
 function longestConsec(strarr, k) {
-	if (k < 0 || k > strarr.length) {
-		return ""
-	} else {
-		let res = []
-		for (let i = 0; i < strarr.length; i++) {
-
-		}
-		return res
-	}
+  if (k < 0 || k > strarr.length) {
+    return "";
+  } else {
+    let res = [];
+    for (let i = 0; i < strarr.length; i++) {}
+    return res;
+  }
 }
 
 // console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2))
 
 function anagrams(word, words) {
-	return words.filter(item => item.split('').sort().join('') === word.split('').sort().join(''))
+  return words.filter(
+    (item) => item.split("").sort().join("") === word.split("").sort().join("")
+  );
 }
 
 // console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']))
 
 function countPositivesSumNegatives(input) {
-	let posNums = 0
-	let negNums = 0
-	let total = []
-	if (input !== null && input.length) {
-		for (let i = 0; i < input.length; i++) {
-			if (input[i] > 0) {
-				posNums++
-			} else negNums += input[i]
-		}
-		total.push(posNums, negNums)
-		return total
-	} else return total
+  let posNums = 0;
+  let negNums = 0;
+  let total = [];
+  if (input !== null && input.length) {
+    for (let i = 0; i < input.length; i++) {
+      if (input[i] > 0) {
+        posNums++;
+      } else negNums += input[i];
+    }
+    total.push(posNums, negNums);
+    return total;
+  } else return total;
 }
 
 // console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]))
 
 function dontGiveMeFive(start, end) {
-	let count = 0
-	for (let i = start; i <= end; i++) {
-		if (!(i + '').includes(5)) {
-			count++
-		}
-	}
-	ret
+  let count = 0;
+  for (let i = start; i <= end; i++) {
+    if (!(i + "").includes(5)) {
+      count++;
+    }
+  }
+  ret;
 }
 
 // console.log(dontGiveMeFive(1, 9))
 
-
 function wave(str) {
-	let capitals = /[A-Z]/
-	let total = []
-	if (str.length) {
-		for (let i = 0; i < str.length; i++) {
-			total.push(str.substr(0, i) + str[i].toUpperCase() + str.substr(i + 1))
-		}
-		return total.filter(item => capitals.test(item))
-	}
-	return total
+  let capitals = /[A-Z]/;
+  let total = [];
+  if (str.length) {
+    for (let i = 0; i < str.length; i++) {
+      total.push(str.substr(0, i) + str[i].toUpperCase() + str.substr(i + 1));
+    }
+    return total.filter((item) => capitals.test(item));
+  }
+  return total;
 }
 
 // console.log(wave(' gap '))
 
-
 // complete the function
 function solution(string) {
-	let capitals = /[A-Z]/
-	return string.split('').map((item) => capitals.test(item) ? ' ' + item : item).join('')
+  let capitals = /[A-Z]/;
+  return string
+    .split("")
+    .map((item) => (capitals.test(item) ? " " + item : item))
+    .join("");
 }
 
 // console.log(solution('javaScript'))
 
 function howManyDalmations(number) {
+  var dogs = [
+    "Hardly any",
+    "More than a handful!",
+    "Woah that's a lot of dogs!",
+    "101 DALMATIONS!!!",
+  ];
 
-	var dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIONS!!!"];
+  var respond =
+    number <= 10
+      ? dogs[0]
+      : number <= 50
+      ? dogs[1]
+      : number === 101
+      ? dogs[3]
+      : dogs[2];
 
-	var respond = number <= 10 ? dogs[0] : number <= 50 ? dogs[1] : number === 101 ? dogs[3] : dogs[2]
-
-	return respond
+  return respond;
 }
 
 // console.log(howManyDalmations(223))
 
 function printerError(s) {
-	let colors = /[a-m]/
-	let errosCount = 0
-	for (let i = 0; i < s.length; i++) {
-		colors.test(s[i]) ? null : errosCount++
-	}
-	return `${errosCount}/${s.length}`
+  let colors = /[a-m]/;
+  let errosCount = 0;
+  for (let i = 0; i < s.length; i++) {
+    colors.test(s[i]) ? null : errosCount++;
+  }
+  return `${errosCount}/${s.length}`;
 }
 
 // console.log(printerError(""))
 
 function validateMessage(msg) {
-	let HTMLleft = /[<]/
-	let HTMLright = /[>]/
-	if (msg === null) throw ReferenceError('Message is null!')
-	else if (msg === false) return false
-	else if (typeof msg !== 'string') throw new TypeError(`Message should be of type string but was of type ${typeof msg}!`)
-	else if (HTMLleft.test(msg) && HTMLright.test(msg)) return false
-	else if (msg.length > 255) throw new RangeError(`Message contains ${msg.length} characters!`)
-	else if (!msg.length) throw new RangeError(`Message contains ${msg.length} characters!`)
-	else return true
+  let HTMLleft = /[<]/;
+  let HTMLright = /[>]/;
+  if (msg === null) throw ReferenceError("Message is null!");
+  else if (msg === false) return false;
+  else if (typeof msg !== "string")
+    throw new TypeError(
+      `Message should be of type string but was of type ${typeof msg}!`
+    );
+  else if (HTMLleft.test(msg) && HTMLright.test(msg)) return false;
+  else if (msg.length > 255)
+    throw new RangeError(`Message contains ${msg.length} characters!`);
+  else if (!msg.length)
+    throw new RangeError(`Message contains ${msg.length} characters!`);
+  else return true;
 }
 
 // console.log(validateMessage(''))
 
-
 function solutionStr(str) {
-	let arr = str.split('')
-	return arr
-		.map((item, idx) => arr.splice(idx, 2))
-		.map(pair => pair.length > 1 ? pair.join('') : pair.join('') + '_')
-		.filter(item => item.length)
+  let arr = str.split("");
+  return arr
+    .map((item, idx) => arr.splice(idx, 2))
+    .map((pair) => (pair.length > 1 ? pair.join("") : pair.join("") + "_"))
+    .filter((item) => item.length);
 }
 
 // console.log(solutionStr('abc'))
 
 function getGrade(s1, s2, s3) {
-	let score = (s1 + s2 + s3) / 3
-	if (score >= 90) return 'A'
-	else if (score >= 80) return 'B'
-	else if (score >= 70) return 'C'
-	else if (score >= 60) return 'D'
-	else if (s > 60) return 'F'
+  let score = (s1 + s2 + s3) / 3;
+  if (score >= 90) return "A";
+  else if (score >= 80) return "B";
+  else if (score >= 70) return "C";
+  else if (score >= 60) return "D";
+  else if (s > 60) return "F";
 }
 
 // console.log(getGrade(90, 85, 83))
 
 function solutionEnd(str, ending) {
-	return str.endsWith(ending)
+  return str.endsWith(ending);
 }
 
 // console.log(solutionEnd('OSKAR', 'KAR'))
 
 function longest(s1, s2) {
-	return [...new Set([...s1, ...s2])]
+  return [...new Set([...s1, ...s2])];
 }
 
 // console.log(longest("aretheyhere", "yestheyarehere"))
 function generateHashtag(str) {
-	str = str.trim()
-	let hashtag = '#' + str.split(' ').filter(item => item.length).map(word => word[0].toUpperCase() + word.slice(1)).join('')
-	if (str.length !== 0 && hashtag.length <= 140) {
-		return hashtag
-	} else return false
+  str = str.trim();
+  let hashtag =
+    "#" +
+    str
+      .split(" ")
+      .filter((item) => item.length)
+      .map((word) => word[0].toUpperCase() + word.slice(1))
+      .join("");
+  if (str.length !== 0 && hashtag.length <= 140) {
+    return hashtag;
+  } else return false;
 }
 
 // console.log(generateHashtag('Oskar is cool'))
@@ -1552,91 +1654,125 @@ function generateHashtag(str) {
 // console.log(generateHashtag("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
 
 function minMax(arr) {
-	let sorted = arr.sort((a, b) => a - b)
-	return arr.length > 1 ? [sorted[0], sorted[sorted.length - 1]] : [arr[0], arr[0]]
+  let sorted = arr.sort((a, b) => a - b);
+  return arr.length > 1
+    ? [sorted[0], sorted[sorted.length - 1]]
+    : [arr[0], arr[0]];
 }
 
 // console.log(minMax([1, 7, 2, 3, 4, 5]))
 // console.log(minMax([1]))
 
 function likes(names) {
-	if (names.length === 1) {
-		return `${names[0]} likes this`
-	} else if (names.length === 2) return `${names.join(' and ')} like this`
-	else if (names.length === 3) return `${names[0]}, ${names[1]} and ${names[2]} like this`
-	else if (names.length > 3) return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
-	else return 'no one likes this'
+  if (names.length === 1) {
+    return `${names[0]} likes this`;
+  } else if (names.length === 2) return `${names.join(" and ")} like this`;
+  else if (names.length === 3)
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+  else if (names.length > 3)
+    return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
+  else return "no one likes this";
 }
 
 // console.log(likes(["Alex", "Jacob", "Mark", "Max"]))
 
 function zero(callback) {
-	return callback ? callback(0) : 0
+  return callback ? callback(0) : 0;
 }
 
 function one(callback) {
-	return callback ? callback(1) : 1
+  return callback ? callback(1) : 1;
 }
 
 function two(callback) {
-	return callback ? callback(2) : 2
+  return callback ? callback(2) : 2;
 }
 
 function three(callback) {
-	return callback ? callback(3) : 3
+  return callback ? callback(3) : 3;
 }
 
 function four(callback) {
-	return callback ? callback(4) : 4
+  return callback ? callback(4) : 4;
 }
 
 function five(callback) {
-	return callback ? callback(5) : 5
+  return callback ? callback(5) : 5;
 }
 
 function six(callback) {
-	return callback ? callback(6) : 6
+  return callback ? callback(6) : 6;
 }
 
 function seven(callback) {
-	return callback ? callback(7) : 7
+  return callback ? callback(7) : 7;
 }
 
 function eight(callback) {
-	return callback ? callback(8) : 8
+  return callback ? callback(8) : 8;
 }
 
 function nine(callback) {
-	return callback ? callback(9) : 9
+  return callback ? callback(9) : 9;
 }
 
 function plus(num) {
-	return (num2) => num + num2
+  return (num2) => num + num2;
 }
 
 function minus(num) {
-	return (num2) => num - num2
+  return (num2) => num - num2;
 }
 
 function times(num) {
-	return (num2) => num * num2
+  return (num2) => num * num2;
 }
 
 function dividedBy(num) {
-	return (num2) => num / num2
+  return (num2) => num / num2;
 }
 
 function removeExclamationMarks(s) {
-	return s.replace(/[!]/g, '');
+  return s.replace(/[!]/g, "");
 }
 
 // console.log(removeExclamationMarks('dasda!!!'))
 
 function isPangram(string) {
-	let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"].join('')
-	string = string.replace(/[.,*+?^=!:${}()|\[\]\/\\ ]/g, '').toUpperCase()
-	string = [...new Set(string.split(''))].sort().filter(l => letters.includes(l)).join('')
-	return letters === string
+  let letters = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+  ].join("");
+  string = string.replace(/[.,*+?^=!:${}()|\[\]\/\\ ]/g, "").toUpperCase();
+  string = [...new Set(string.split(""))]
+    .sort()
+    .filter((l) => letters.includes(l))
+    .join("");
+  return letters === string;
 }
 
 // console.log(isPangram("The quick brown fox jumps over the lazy dog."))
@@ -1652,70 +1788,72 @@ function isPangram(string) {
 // console.log(str.lastIndexOf('s'))
 
 function lastIndexOfPolifil(head, value) {
-	if (head !== null) {
-		let totalIdx = -1;
-		for (let i = 0; i < head.length; i++) {
-			if (head[i] === value) totalIdx = i
-		}
-		return totalIdx
-	} else return -1
+  if (head !== null) {
+    let totalIdx = -1;
+    for (let i = 0; i < head.length; i++) {
+      if (head[i] === value) totalIdx = i;
+    }
+    return totalIdx;
+  } else return -1;
 }
 
 // console.log(lastIndexOfPolifil(['o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's','o', 's', 'k', 'a', 'r', 's'], 's'))
 // console.log(lastIndexOfPolifil([1, 2, 3, 2], 2))
 
-
 function duplicateCount(text) {
-	text = text.toLowerCase().split('').sort()
-	console.log(text)
-	let count = 0
-	for (let i = 0; i < text.length; i++) {
-		if (text[i] === text[i + 1]) {
-			text = text.filter(item => item !== text[i])
-			i = i - 1
-			count += 1
-		}
-	}
-	return count
+  text = text.toLowerCase().split("").sort();
+  console.log(text);
+  let count = 0;
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === text[i + 1]) {
+      text = text.filter((item) => item !== text[i]);
+      i = i - 1;
+      count += 1;
+    }
+  }
+  return count;
 }
 
 // console.log(duplicateCount(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'].join('')))
 
 function solutionNums(number) {
-	let nums = []
-	for (let i = 0; i < number; i++) {
-		if (i % 3 === 0 || i % 5 === 0) nums.push(i)
-	}
-	return nums.reduce((acc, num) => acc += num, 0)
+  let nums = [];
+  for (let i = 0; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) nums.push(i);
+  }
+  return nums.reduce((acc, num) => (acc += num), 0);
 }
 
 // console.log(solutionNums(0))
 
 function rentalCarCost(d) {
-	if (d >= 3 && d < 7) return (d * 40) - 20
-	else if (d >= 7) return (d * 40) - 50
-	else return d * 40
+  if (d >= 3 && d < 7) return d * 40 - 20;
+  else if (d >= 7) return d * 40 - 50;
+  else return d * 40;
 }
 
 // console.log(rentalCarCost(6))
 
-
 function cakes(recipe, available) {
-	if (Object.keys(recipe).length > Object.keys(available).length) return 0
-	else {
-		let whatWeHave = Object.entries(available)
-		let whatWeNeed = Object.entries(recipe).flat()
-		let arr = []
-		for (let i = 0; i < whatWeHave.length; i++) {
-			if (whatWeNeed.includes(whatWeHave[i][0])) arr.push(whatWeHave[i])
-		}
-		return Math.min(...arr.flat().map((item, idx, array) => {
-			if (typeof item === "string") {
-				let ingredientWeight = whatWeNeed.indexOf(item) + 1
-				return array[idx + 1] = Math.floor(array[idx + 1] / whatWeNeed[ingredientWeight])
-			} else return item
-		}))
-	}
+  if (Object.keys(recipe).length > Object.keys(available).length) return 0;
+  else {
+    let whatWeHave = Object.entries(available);
+    let whatWeNeed = Object.entries(recipe).flat();
+    let arr = [];
+    for (let i = 0; i < whatWeHave.length; i++) {
+      if (whatWeNeed.includes(whatWeHave[i][0])) arr.push(whatWeHave[i]);
+    }
+    return Math.min(
+      ...arr.flat().map((item, idx, array) => {
+        if (typeof item === "string") {
+          let ingredientWeight = whatWeNeed.indexOf(item) + 1;
+          return (array[idx + 1] = Math.floor(
+            array[idx + 1] / whatWeNeed[ingredientWeight]
+          ));
+        } else return item;
+      })
+    );
+  }
 }
 
 // console.log(cakes(
@@ -1723,65 +1861,102 @@ function cakes(recipe, available) {
 //     {flour: 1200, sugar: 1200, eggs: 5, milk: 200}
 // ))
 
-
 function rot13(message) {
-	let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-	let tmpL = message[0]
-	console.log([...letters, ...letters])
-	let output = message.toLowerCase().split('').map((item, idx) => {
-		if (letters.indexOf(item) >= 13) letters = [...letters, ...letters]
-		return letters.includes(item) ? letters[letters.indexOf(item) + 13] : item
-	})
-	output[0] = tmpL.toUpperCase() === tmpL ? output[0].toUpperCase() : output[0]
-	return output.join('')
+  let letters = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ];
+  let tmpL = message[0];
+  console.log([...letters, ...letters]);
+  let output = message
+    .toLowerCase()
+    .split("")
+    .map((item, idx) => {
+      if (letters.indexOf(item) >= 13) letters = [...letters, ...letters];
+      return letters.includes(item)
+        ? letters[letters.indexOf(item) + 13]
+        : item;
+    });
+  output[0] = tmpL.toUpperCase() === tmpL ? output[0].toUpperCase() : output[0];
+  return output.join("");
 }
 
 // console.log(rot13("abcdefghijklmnopqrstuvwxyz"))
 
 const users = [
-	{ name: 'Oskar', surname: 'Shtefan', age: 15 },
-	{ name: 'Alex', surname: 'Brown', age: 25 },
-	{ name: 'Max', surname: 'Maximov', age: 25 },
-	{ name: 'abcd', surname: 'qwerty', age: 45 },
-]
+  { name: "Oskar", surname: "Shtefan", age: 15 },
+  { name: "Alex", surname: "Brown", age: 25 },
+  { name: "Max", surname: "Maximov", age: 25 },
+  { name: "abcd", surname: "qwerty", age: 45 },
+];
 
 let output = users.reduce((acc, item) => {
-	if (item.age >= 25 && item.age < 40) acc.push(item.name)
-	return acc
-}, [])
+  if (item.age >= 25 && item.age < 40) acc.push(item.name);
+  return acc;
+}, []);
 
 // console.log(output)
 
 multiplicationTable = function (size) {
-	let output = []
-	for (let i = 1; i <= size; i++) {
-		let tmp = []
-		for (let j = 1; j <= size; j++) {
-			tmp.push(j * i)
-		}
-		output.push(tmp)
-	}
-	return output
-}
+  let output = [];
+  for (let i = 1; i <= size; i++) {
+    let tmp = [];
+    for (let j = 1; j <= size; j++) {
+      tmp.push(j * i);
+    }
+    output.push(tmp);
+  }
+  return output;
+};
 
 // console.log(multiplicationTable(3))
 
 function toWeirdCase(string) {
-	return string.split(' ').map((item, idx) => {
-		return item.split('').map((item, idx) => idx % 2 === 0 ? item.toUpperCase() : item).join('')
-	}).join(' ')
+  return string
+    .split(" ")
+    .map((item, idx) => {
+      return item
+        .split("")
+        .map((item, idx) => (idx % 2 === 0 ? item.toUpperCase() : item))
+        .join("");
+    })
+    .join(" ");
 }
 
 // console.log(toWeirdCase('This is a test'))
 
 function validParentheses(parens) {
-	let count = 0
-	for (let i = 0; i < parens.length; i++) {
-		if (parens[i] === '(') count += 1
-		else if (parens[i] === ')') count -= 1
-		if (count < 0) return false
-	}
-	return count === 0
+  let count = 0;
+  for (let i = 0; i < parens.length; i++) {
+    if (parens[i] === "(") count += 1;
+    else if (parens[i] === ")") count -= 1;
+    if (count < 0) return false;
+  }
+  return count === 0;
 }
 
 // console.log(validParentheses(''))
@@ -1790,24 +1965,24 @@ function validParentheses(parens) {
 // console.log(validParentheses('(()'))
 
 function comp(array1, array2) {
-	array1 = array1.sort((a, b) => a - b)
-	array2 = array2.sort((a, b) => a - b)
-	if (array1 === null || array2 === null) return false
-	else if (array1.length !== array2.length) return false
-	return array1.every((n, idx) => n ** 2 === array2[idx])
+  array1 = array1.sort((a, b) => a - b);
+  array2 = array2.sort((a, b) => a - b);
+  if (array1 === null || array2 === null) return false;
+  else if (array1.length !== array2.length) return false;
+  return array1.every((n, idx) => n ** 2 === array2[idx]);
 }
 
 // console.log(comp([4,4], [1,31]))
 // console.log(comp([8,9], [64, 81]))
 
 let animal = {
-	eats: 'eat from animal',
-	action() {
-		return this.eats
-	}
+  eats: "eat from animal",
+  action() {
+    return this.eats;
+  },
 };
 let rabbit = {
-	jumps: "jump from rabbbit"
+  jumps: "jump from rabbbit",
 };
 
 // console.log(rabbit.jumps)
@@ -1819,22 +1994,22 @@ let rabbit = {
 // console.log(rabbit.action())
 
 let oskar = {
-	name: "Oskar",
-	testProto: 'test',
-	code: `${this.name} ${this.testProto}`,
-	action() {
-		return this.code
-	},
-	greeting() {
-		return 'Hi my name is ' + this.name
-	}
+  name: "Oskar",
+  testProto: "test",
+  code: `${this.name} ${this.testProto}`,
+  action() {
+    return this.code;
+  },
+  greeting() {
+    return "Hi my name is " + this.name;
+  },
 };
 // console.log(oskar.name)
 // console.log(oskar.action())
 // console.log(oskar.greeting())
 let alex = {
-	__proto__: oskar,
-	name: 'Alex',
+  __proto__: oskar,
+  name: "Alex",
 };
 
 // console.log(alex.name)
@@ -1842,352 +2017,391 @@ let alex = {
 // console.log(alex.greeting())
 
 let alexWife = {
-	name: 'Janet',
-	info: {
-		born: "yesterday",
-		// skills:['cook', 'clean']
-	},
-	__proto__: alex
-}
+  name: "Janet",
+  info: {
+    born: "yesterday",
+    // skills:['cook', 'clean']
+  },
+  __proto__: alex,
+};
 
 // console.log(alexWife.info?.skills ?? ['seatinig'])
 
 const getDatas = () => {
-	let posts;
-	const fetchPost = async () => {
-		const res = await fetch('https://jsonplaceholder.typicode.com/todos')
-		posts = await res.json()
-		return posts
-	}
-	fetchPost().then(res => console.log(res))
-}
+  let posts;
+  const fetchPost = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+    posts = await res.json();
+    return posts;
+  };
+  fetchPost().then((res) => console.log(res));
+};
 
 // getDatas()
 function remove(s, n) {
-	while (n) {
-		n -= 1
-		s = s.replace(/!/, '')
-	}
-	return s
+  while (n) {
+    n -= 1;
+    s = s.replace(/!/, "");
+  }
+  return s;
 }
 
 // console.log(remove('!hi!!', 2))
 
-function find(seq) {
-
-}
+function find(seq) {}
 
 // console.log(find([1,3,4]))
 // console.log(find([1,3,5,9,11]))
 
 function explode(s) {
-	return s.split('').map(item => item.repeat(+item)).join('')
+  return s
+    .split("")
+    .map((item) => item.repeat(+item))
+    .join("");
 }
 
 // console.log(explode('123'))
 
 function greet(language) {
-	const db = {
-		english: 'Welcome',
-		czech: 'Vitejte',
-		danish: 'Velkomst',
-		dutch: 'Welkom',
-		estonian: 'Tere tulemast',
-		finnish: 'Tervetuloa',
-		flemish: 'Welgekomen',
-		french: 'Bienvenue',
-		german: 'Willkommen',
-		irish: 'Failte',
-		italian: 'Benvenuto',
-		latvian: 'Gaidits',
-		lithuanian: 'Laukiamas',
-		polish: 'Witamy',
-		spanish: 'Bienvenido',
-		swedish: 'Valkommen',
-		welsh: 'Croeso'
-	}
-	return db[language] ? db[language] : db.english
+  const db = {
+    english: "Welcome",
+    czech: "Vitejte",
+    danish: "Velkomst",
+    dutch: "Welkom",
+    estonian: "Tere tulemast",
+    finnish: "Tervetuloa",
+    flemish: "Welgekomen",
+    french: "Bienvenue",
+    german: "Willkommen",
+    irish: "Failte",
+    italian: "Benvenuto",
+    latvian: "Gaidits",
+    lithuanian: "Laukiamas",
+    polish: "Witamy",
+    spanish: "Bienvenido",
+    swedish: "Valkommen",
+    welsh: "Croeso",
+  };
+  return db[language] ? db[language] : db.english;
 }
 
 // console.log(greet('polish'))
 
 function findDup(arr) {
-	return arr.filter((item, idx) => {
-		return arr.indexOf(item) !== idx
-	})[0]
+  return arr.filter((item, idx) => {
+    return arr.indexOf(item) !== idx;
+  })[0];
 }
 
 // console.log(findDup([1,2,2,3]))
 
 function take(arr, n) {
-	if (!arr.length) return []
-	let output = []
-	for (let i = 0; i < n; i++) {
-		if (!arr[i]) output.push(arr[i])
-	}
-	return output
+  if (!arr.length) return [];
+  let output = [];
+  for (let i = 0; i < n; i++) {
+    if (!arr[i]) output.push(arr[i]);
+  }
+  return output;
 }
 
 // console.log(take([0, 1, 2, 3, 4, 5], 2))
 
 function cleanString(s) {
-	let start = s.split('').indexOf('#')
-	return s.split('').reverse().slice(start)
+  let start = s.split("").indexOf("#");
+  return s.split("").reverse().slice(start);
 }
 
 // console.log(cleanString('fcabc#d####c'))
 
 function nbYear(p0, percent, aug, p) {
-	let years = 0
-	while (p0 < p) {
-		p0 = p0 + (p0 * (percent / 100)) + aug
-		years++
-	}
-	return years
+  let years = 0;
+  while (p0 < p) {
+    p0 = p0 + p0 * (percent / 100) + aug;
+    years++;
+  }
+  return years;
 }
 
 // console.log(nbYear(1500, 5, 100, 5000))
 
 String.prototype.toAlternatingCase = function () {
-	let upper = /[A-Z]/
-	return this.split('').map(item => {
-		if (upper.test(item)) return item.toLowerCase()
-		else return item.toUpperCase()
-	}).join('')
-}
+  let upper = /[A-Z]/;
+  return this.split("")
+    .map((item) => {
+      if (upper.test(item)) return item.toLowerCase();
+      else return item.toUpperCase();
+    })
+    .join("");
+};
 // console.log('eESDASDASssss'.toAlternatingCase())
 
 const sumOfTwo = (nums, target) => {
-	const numObj = {}
-	for (let i = 0; i < nums.length; i++) {
-		let value = nums[i]
-		let remainder = target - value
-		if (numObj[remainder] !== undefined) {
-			return [numObj[remainder], i]
-		} else numObj[value] = i
-	}
-}
+  const numObj = {};
+  for (let i = 0; i < nums.length; i++) {
+    let value = nums[i];
+    let remainder = target - value;
+    if (numObj[remainder] !== undefined) {
+      return [numObj[remainder], i];
+    } else numObj[value] = i;
+  }
+};
 
 const sumOfThree = (nums, target) => {
-	let output = []
-	if (nums.length < 3) {
-		return output
-	}
-	nums = nums.sort((a, b) => a - b)
-	for (let i = 0; i < nums.length - 2; i++) {
-		if (nums[i] > target) {
-			break
-		}
-		if (i > 0 && nums[i] === nums[i - 1]) {
-			continue
-		}
-		let j = i + 1
-		let k = nums.length - 1
+  let output = [];
+  if (nums.length < 3) {
+    return output;
+  }
+  nums = nums.sort((a, b) => a - b);
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i] > target) {
+      break;
+    }
+    if (i > 0 && nums[i] === nums[i - 1]) {
+      continue;
+    }
+    let j = i + 1;
+    let k = nums.length - 1;
 
-		while (j < k) {
-			let sum = nums[i] + nums[j] + nums[k]
-			if (sum === target) {
-				output.push([nums[i], nums[j], nums[k]])
+    while (j < k) {
+      let sum = nums[i] + nums[j] + nums[k];
+      if (sum === target) {
+        output.push([nums[i], nums[j], nums[k]]);
 
-				while (nums[j] === nums[j + 1]) j++
-				while (nums[k] === nums[k - 1]) k--
+        while (nums[j] === nums[j + 1]) j++;
+        while (nums[k] === nums[k - 1]) k--;
 
-				j++
-				k--
-				continue
-			}
+        j++;
+        k--;
+        continue;
+      }
 
-			if (sum < target) {
-				j++
-				continue
-			}
-			if (sum > target) {
-				k--
-			}
-		}
-	}
+      if (sum < target) {
+        j++;
+        continue;
+      }
+      if (sum > target) {
+        k--;
+      }
+    }
+  }
 
-	return output
-}
+  return output;
+};
 
 // console.log(sumOfTwo([7, 1, 4, 6, 3], 7))
 // console.log(sumOfThree([1, 4, 6, -3, 2, 6, 0, 1, -1, -5, -3, -4, 2], 4))
 
 const movies = [
-	{
-		title: "home alone",
-		category: ["comedy"],
-		year: 1990,
-		ticketPrice: 200
-	},
-	{
-		title: "batman",
-		category: ["action"],
-		year: 2022,
-		ticketPrice: 370
-	},
-	{
-		title: "starwars",
-		category: ["action", "dramma"],
-		year: 2020,
-		ticketPrice: 420
-	},
-	{
-		title: "zootopia",
-		category: ["cartoon", "fantastic"],
-		year: 2017,
-		ticketPrice: 300
-	},
-]
+  {
+    title: "home alone",
+    category: ["comedy"],
+    year: 1990,
+    ticketPrice: 200,
+  },
+  {
+    title: "batman",
+    category: ["action"],
+    year: 2022,
+    ticketPrice: 370,
+  },
+  {
+    title: "starwars",
+    category: ["action", "dramma"],
+    year: 2020,
+    ticketPrice: 420,
+  },
+  {
+    title: "zootopia",
+    category: ["cartoon", "fantastic"],
+    year: 2017,
+    ticketPrice: 300,
+  },
+];
 
 function towerBuilder(nFloors) {
-	const triangle = []
-	let star = '*'
-	for (let i = 1; i <= nFloors; i++) {
-		let space = (nFloors - i)
-		triangle.push(`${' '.repeat(space)}${star}${' '.repeat(space)}`)
-		star = '*'.repeat(star.length + 2)
-	}
-	return triangle
+  const triangle = [];
+  let star = "*";
+  for (let i = 1; i <= nFloors; i++) {
+    let space = nFloors - i;
+    triangle.push(`${" ".repeat(space)}${star}${" ".repeat(space)}`);
+    star = "*".repeat(star.length + 2);
+  }
+  return triangle;
 }
 
 // console.log(towerBuilder(9))
 
 function narcissistic(value) {
-	return value.toString().split('').map((item, idx, arr) => (+item) ** arr.length).reduce((acc, num) => acc += num, 0) === value
+  return (
+    value
+      .toString()
+      .split("")
+      .map((item, idx, arr) => (+item) ** arr.length)
+      .reduce((acc, num) => (acc += num), 0) === value
+  );
 }
 
 // console.log(narcissistic(153))
 // console.log(narcissistic(1938))
 
 function solution(inputString) {
-	let output = inputString
-	while (output.includes('(')) {
-
-		let end = output.indexOf(')')
-		let start = output.lastIndexOf('(', end)
-		let reversedStr = output.slice(start + 1, end).split('').reverse().join('')
-		output = output.slice(0, start) + reversedStr + output.slice(end + 1)
-	}
-	return output
+  let output = inputString;
+  while (output.includes("(")) {
+    let end = output.indexOf(")");
+    let start = output.lastIndexOf("(", end);
+    let reversedStr = output
+      .slice(start + 1, end)
+      .split("")
+      .reverse()
+      .join("");
+    output = output.slice(0, start) + reversedStr + output.slice(end + 1);
+  }
+  return output;
 }
 // console.log(solution('foo(bar(baz))blim'))
 // console.log(solution('foo(bar)baz'))
 // console.log(solution('(bar)'));
 
 function titleCase(title, minorWords) {
-	let words = title.split(' ')
-	let first = words.splice(0, 1).join('')
-	let minors
-	if (minorWords) {
-		minors = minorWords.split(' ')
-	}
 
-	if (!title) {
-		return ''
-	} else if (title.split(' ').length === 1) {
-		return `${first[0].toUpperCase() + first.slice(1).toLowerCase()}`
-	} else {
-		words = words.map((item) => {
-			if (minors && minors.includes(item.toLowerCase()) || minors && minors.includes(item.toUpperCase())) {
-				return item.toLowerCase()
-			} else {
-				return item[0].toUpperCase() + item.slice(1).toLowerCase()
-			}
-		}).join(' ')
-		return `${first[0].toUpperCase() + first.slice(1).toLowerCase()} ${words}`
-	}
+  return title.split(' ').map(word => {
+    if(minorWords.includes(word)) {
+      return word
+    }
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  }).join(' ')
+
+  // let words = title.split(" ");
+  // let first = words.splice(0, 1).join("");
+  // let minors;
+  // if (minorWords) {
+  //   minors = minorWords.split(" ");
+  // }
+
+  // if (!title) {
+  //   return "";
+  // } else if (title.split(" ").length === 1) {
+  //   return `${first[0].toUpperCase() + first.slice(1).toLowerCase()}`;
+  // } else {
+  //   words = words
+  //     .map((item) => {
+  //       if (
+  //         (minors && minors.includes(item.toLowerCase())) ||
+  //         (minors && minors.includes(item.toUpperCase()))
+  //       ) {
+  //         return item.toLowerCase();
+  //       } else {
+  //         return item[0].toUpperCase() + item.slice(1).toLowerCase();
+  //       }
+  //     })
+  //     .join(" ");
+  //   return `${first[0].toUpperCase() + first.slice(1).toLowerCase()} ${words}`;
+  // }
 }
 // console.log(titleCase('a clash of KINGS', 'of'))
 // console.log(titleCase('ab', 'ab'))
 
 function solutionTicket(n) {
-	let arrOfNums = n.toString().split('')
-	let left = arrOfNums.slice(0, arrOfNums.length / 2)
-	let right = arrOfNums.slice(arrOfNums.length / 2)
-	return left
+  let arrOfNums = n.toString().split("");
+  let left = arrOfNums.slice(0, arrOfNums.length / 2);
+  let right = arrOfNums.slice(arrOfNums.length / 2);
+  return left;
 }
 // console.log(solutionTicket(1230));
 
 function solutionTeams(a) {
-	const firstTeam = []
-	const secondTeam = []
+  const firstTeam = [];
+  const secondTeam = [];
 
-	a.forEach((item, idx) => {
-		if ((idx + 1) % 2 === 0) {
-			secondTeam.push(item)
-		} else firstTeam.push(item)
-	})
+  a.forEach((item, idx) => {
+    if ((idx + 1) % 2 === 0) {
+      secondTeam.push(item);
+    } else firstTeam.push(item);
+  });
 
-	return [firstTeam.reduce((acc, num) => acc += num, 0), secondTeam.reduce((acc, num) => acc += num, 0)]
+  return [
+    firstTeam.reduce((acc, num) => (acc += num), 0),
+    secondTeam.reduce((acc, num) => (acc += num), 0),
+  ];
 }
 
 // console.log(solutionTeams([50, 60, 60, 45, 70]));
 
 function solutionPic(picture) {
-
-	let pic = picture.map(item => `*${item}*`)
-	const output = ['*'.repeat(picture[0].length + 2), ...pic, '*'.repeat(picture[0].length + 2)]
-	return output
-
+  let pic = picture.map((item) => `*${item}*`);
+  const output = [
+    "*".repeat(picture[0].length + 2),
+    ...pic,
+    "*".repeat(picture[0].length + 2),
+  ];
+  return output;
 }
 
 // console.log(solutionPic(['lox', 'sam']));
 
 function smaller(nums) {
-	let output = []
-	for (let i = 0; i < nums.length; i++) {
-		output.push(nums.slice(i).reduce((acc, num) => {
-			if (num < nums[i]) {
-				acc += 1
-				return acc
-			} else return acc
-		}, 0))
-	}
-	return output
+  let output = [];
+  for (let i = 0; i < nums.length; i++) {
+    output.push(
+      nums.slice(i).reduce((acc, num) => {
+        if (num < nums[i]) {
+          acc += 1;
+          return acc;
+        } else return acc;
+      }, 0)
+    );
+  }
+  return output;
 }
 
 // console.log(smaller([5, 4, 3, 2, 1]));
 // console.log(smaller([1, 2, 3]));
 
 function hardProcess(a, k) {
-	let count = 0
-	for (let i = 0; i < a.length; i++) {
-		if (a[i] === 1 && a[i] === a[i + 1]) {
-			count += 1
-		}
-	}
-	return count
+  let count = 0;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] === 1 && a[i] === a[i + 1]) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 // console.log(hardProcess([1, 0, 0, 1, 1, 0, 1], 1));
 
 function getFirstPython(list) {
-	let output = ''
-	for (const person of list) {
-		if (person.language === 'Python') {
-			output = `${person.firstName}, ${person.country}`
-			break
-		}
-	}
+  let output = "";
+  for (const person of list) {
+    if (person.language === "Python") {
+      output = `${person.firstName}, ${person.country}`;
+      break;
+    }
+  }
 
-	return output ? output : 'There will be no Python developers'
+  return output ? output : "There will be no Python developers";
 }
 
 // console.log(getFirstPython([{ "firstName": "Krishna", "lastName": "G.", "country": "Nepal", "continent": "Asia", "age": 22, "language": "Java" }, { "firstName": "Nikola", "lastName": "H.", "country": "Serbia", "continent": "Europe", "age": 29, "language": "Python" }, { "firstName": "Alexander", "lastName": "F.", "country": "Russia", "continent": "Europe", "age": 89, "language": "Java" }, { "firstName": "Nareh", "lastName": "Q.", "country": "Armenia", "continent": "Europe", "age": 30, "language": "Clojure" }, { "firstName": "Mariam", "lastName": "B.", "country": "Egypt", "continent": "Africa", "age": 89, "language": "Python" }]))
 
-
 function countLanguages(list) {
-	const output = {}
-	list.forEach(person => (
-		output[person.language] ? output[person.language] += 1 : output[person.language] = 1
-	))
-	return output
+  const output = {};
+  list.forEach((person) =>
+    output[person.language]
+      ? (output[person.language] += 1)
+      : (output[person.language] = 1)
+  );
+  return output;
 }
 
 function allContinents(list) {
-	const validContinets = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
-	return new Set(list.filter(person => validContinets.includes(person.continent)).map(item => item.continent)).size === 5
+  const validContinets = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+  return (
+    new Set(
+      list
+        .filter((person) => validContinets.includes(person.continent))
+        .map((item) => item.continent)
+    ).size === 5
+  );
 }
 
 // console.log(allContinents([
@@ -2200,22 +2414,27 @@ function allContinents(list) {
 // ]));
 
 function isAgeDiverse(list) {
-	if (list.length < 10) return false
-	return new Set(list.map(person => {
-		if (person.age <= 10) return 1
-		if (person.age > 99) return 10
-		else return +(person.age + '')[0]
-	})).size >= 10
+  if (list.length < 10) return false;
+  return (
+    new Set(
+      list.map((person) => {
+        if (person.age <= 10) return 1;
+        if (person.age > 99) return 10;
+        else return +(person.age + "")[0];
+      })
+    ).size >= 10
+  );
 }
-
 
 function addUsername(list) {
-	const currentYear = new Date().getFullYear()
-	return list.map(person => (
-		{ ...person, username: (person.firstName + (person.lastName)[0]).toLowerCase() + `${currentYear - person.age}` }
-	))
+  const currentYear = new Date().getFullYear();
+  return list.map((person) => ({
+    ...person,
+    username:
+      (person.firstName + person.lastName[0]).toLowerCase() +
+      `${currentYear - person.age}`,
+  }));
 }
-
 
 // console.log(addUsername([
 //     { firstName: 'Emily', lastName: 'N.', country: 'Ireland', continent: 'Europe', age: 30, language: 'Ruby' },
@@ -2223,41 +2442,46 @@ function addUsername(list) {
 // ]));
 
 function isLanguageDiverse(list) {
-	let langCount = []
-	list.forEach(person => {
-		if (!langCount.map(item => item.language).includes(person.language)) {
-			langCount.push({ language: person.language, count: 1 })
-		}
-		else {
-			langCount[langCount.findIndex(item => item.language === person.language)].count += 1
-		}
-	})
+  let langCount = [];
+  list.forEach((person) => {
+    if (!langCount.map((item) => item.language).includes(person.language)) {
+      langCount.push({ language: person.language, count: 1 });
+    } else {
+      langCount[
+        langCount.findIndex((item) => item.language === person.language)
+      ].count += 1;
+    }
+  });
 
-	langCount = langCount.map(lang => lang.count)
-	const maxLangCount = Math.max(...langCount)
-	const minLangCount = Math.min(...langCount)
+  langCount = langCount.map((lang) => lang.count);
+  const maxLangCount = Math.max(...langCount);
+  const minLangCount = Math.min(...langCount);
 
-	// return langCount
-	return minLangCount * 2 > maxLangCount
+  // return langCount
+  return minLangCount * 2 > maxLangCount;
 }
 
 function isLanguageDiverseTwo(list) {
-	list = list.map(dev => dev.language);
-	const num = [...new Set(list)].map(el => list.filter(e => e === el).length);
-	return num
+  list = list.map((dev) => dev.language);
+  const num = [...new Set(list)].map(
+    (el) => list.filter((e) => e === el).length
+  );
+  return num;
 }
 // console.log(isLanguageDiverseTwo([{"firstName":"Nikau","lastName":"R.","country":"New Zealand","continent":"Oceania","age":39,"language":"Ruby"},{"firstName":"Louise","lastName":"F.","country":"France","continent":"Europe","age":22,"language":"JavaScript"},{"firstName":"Luka","lastName":"J.","country":"Slovenia","continent":"Europe","age":29,"language":"Python"},{"firstName":"Shufen","lastName":"L.","country":"Taiwan","continent":"Asia","age":35,"language":"JavaScript"},{"firstName":"Emma","lastName":"B.","country":"Norway","continent":"Europe","age":19,"language":"Python"},{"firstName":"Emily","lastName":"N.","country":"Ireland","continent":"Europe","age":38,"language":"JavaScript"},{"firstName":"Gabriel","lastName":"T.","country":"Luxembourg","continent":"Europe","age":28,"language":"JavaScript"},{"firstName":"Amar","lastName":"V.","country":"Bosnia and Herzegovina","continent":"Europe","age":32,"language":"JavaScript"},{"firstName":"Mariami","lastName":"G.","country":"Georgia","continent":"Europe","age":29,"language":"Ruby"},{"firstName":"Sebastian","lastName":"W.","country":"Venezuela","continent":"Americas","age":28,"language":"JavaScript"},{"firstName":"Madison","lastName":"U.","country":"United States","continent":"Americas","age":32,"language":"Ruby"},{"firstName":"Piotr","lastName":"B.","country":"Poland","continent":"Europe","age":128,"language":"Ruby"},{"firstName":"Alexander","lastName":"F.","country":"Russia","continent":"Europe","age":89,"language":"JavaScript"},{"firstName":"Mariam","lastName":"B.","country":"Egypt","continent":"Africa","age":89,"language":"JavaScript"},{"firstName":"Emma","lastName":"U.","country":"Belgium","continent":"Europe","age":39,"language":"Python"},{"firstName":"Margret","lastName":"M.","country":"Iceland","continent":"Europe","age":28,"language":"JavaScript"},{"firstName":"Sofia","lastName":"A.","country":"Denmark","continent":"Europe","age":19,"language":"Ruby"},{"firstName":"Luke","lastName":"V.","country":"Malta","continent":"Europe","age":29,"language":"Ruby"},{"firstName":"Maria","lastName":"I.","country":"Greece","continent":"Europe","age":32,"language":"Ruby"},{"firstName":"George","lastName":"B.","country":"England","continent":"Europe","age":21,"language":"JavaScript"},{"firstName":"Noel","lastName":"O.","country":"Albania","continent":"Europe","age":23,"language":"Python"},{"firstName":"Fatima","lastName":"A.","country":"Algeria","continent":"Africa","age":25,"language":"JavaScript"},{"firstName":"Laia","lastName":"P.","country":"Andorra","continent":"Europe","age":55,"language":"Ruby"}]));
 
 function isIsogram(str) {
-	const filteredStr = new Set(str.toLowerCase().split(''))
-	return filteredStr.size === str.length
+  const filteredStr = new Set(str.toLowerCase().split(""));
+  return filteredStr.size === str.length;
 }
 // console.log(isIsogram('isIogram'));
 
 function findOddNames(list) {
-	let names = list.map(person => person.firstName.toLowerCase().split('')).map(name => name.map(l => letters.indexOf(l) + 1))
-	names = names.map(name => name.reduce((acc, item) => acc += item, 0))
-	return list.filter((person, idx) => names[idx] % 2 !== 0)
+  let names = list
+    .map((person) => person.firstName.toLowerCase().split(""))
+    .map((name) => name.map((l) => letters.indexOf(l) + 1));
+  names = names.map((name) => name.reduce((acc, item) => (acc += item), 0));
+  return list.filter((person, idx) => names[idx] % 2 !== 0);
 }
 
 // console.log(findOddNames( [
@@ -2266,19 +2490,19 @@ function findOddNames(list) {
 // ]));
 
 function askForMissingDetails(list) {
-	return list.filter(person => {
-		let isNull = false
-		for (const key in person) {
-			if (person[key] !== null) {
-				continue
-			} else {
-				isNull = true
-				person.question = `Hi, could you please provide your ${key}.`
-				break
-			}
-		}
-		return isNull
-	})
+  return list.filter((person) => {
+    let isNull = false;
+    for (const key in person) {
+      if (person[key] !== null) {
+        continue;
+      } else {
+        isNull = true;
+        person.question = `Hi, could you please provide your ${key}.`;
+        break;
+      }
+    }
+    return isNull;
+  });
 }
 
 // console.log(askForMissingDetails([
@@ -2288,10 +2512,10 @@ function askForMissingDetails(list) {
 // ]));
 
 function sortByLanguage(list) {
-	const langs = list.map(person => person.language)
-	return list.sort((a, b) => {
-		return a.language.toLowerCase().localeCompare(b.language.toLowerCase())
-	})
+  const langs = list.map((person) => person.language);
+  return list.sort((a, b) => {
+    return a.language.toLowerCase().localeCompare(b.language.toLowerCase());
+  });
 }
 
 // console.log(sortByLanguage([
@@ -2302,22 +2526,22 @@ function sortByLanguage(list) {
 // ]))
 
 function productFib(prod) {
-	const fibonachi = [0, 1]
-	let next = 1
-	let prev = 0
-	while (next < prod) {
-		let nextCopy = next
-		next += prev
-		prev = nextCopy
-		fibonachi.push(next)
-	}
-	for (let i = 0; i < fibonachi.length; i++) {
-		const prevNum = fibonachi[i];
-		const nextNum = fibonachi[i + 1];
-		if (prevNum * nextNum === prod) {
-			return [prevNum, nextNum, true]
-		} else if (prevNum * nextNum > prod) return [prevNum, nextNum, false]
-	}
+  const fibonachi = [0, 1];
+  let next = 1;
+  let prev = 0;
+  while (next < prod) {
+    let nextCopy = next;
+    next += prev;
+    prev = nextCopy;
+    fibonachi.push(next);
+  }
+  for (let i = 0; i < fibonachi.length; i++) {
+    const prevNum = fibonachi[i];
+    const nextNum = fibonachi[i + 1];
+    if (prevNum * nextNum === prod) {
+      return [prevNum, nextNum, true];
+    } else if (prevNum * nextNum > prod) return [prevNum, nextNum, false];
+  }
 }
 
 // console.log(productFib())
@@ -2353,77 +2577,76 @@ function productFib(prod) {
 // console.log(testArr);
 // console.log(testArr2);
 
+// const checkBrackets = (str) => {
+//   let brackets = [];
+//   const bracketsTemplate = {
+//     "{": "}",
+//     "[": "]",
+//     "(": ")",
+//   };
+//   let output = true;
 
-const checkBrackets = (str) => {
-	let brackets = []
-	const bracketsTemplate = {
-		'{': '}',
-		'[': ']',
-		'(': ')',
-	}
-	let output = true
+//   str.split("").forEach((bracket) => {
+//     if (bracket === "(" || bracket === "[" || bracket === "{")
+//       brackets.push(bracket);
+//     else if (bracket !== bracketsTemplate[brackets.pop()]) output = false;
+//   });
 
-	str.split('').forEach((bracket) => {
-		if (bracket === '(' || bracket === '[' || bracket === '{') brackets.push(bracket)
-		else if (bracket !== bracketsTemplate[brackets.pop()]) output = false
-	})
-
-	return output
-}
+//   return output;
+// };
 
 // console.log(checkBrackets('([{}])'));
 
 const setFilterForArr = (arr) => {
-	return arr.filter((item, idx) => {
-		return arr.lastIndexOf(item) === idx
-	})
-	// or just use new Set
-}
+  return arr.filter((item, idx) => {
+    return arr.lastIndexOf(item) === idx;
+  });
+  // or just use new Set
+};
 
 // console.log(setFilterForArr([1, 2, 2,1,2,3,1,2,1,1,2,2]));
 
 const setFilterForArr2 = (arr) => {
-	return arr.filter((item) => arr.indexOf(item) === arr.lastIndexOf(item))
-}
+  return arr.filter((item) => arr.indexOf(item) === arr.lastIndexOf(item));
+};
 
 // console.log(setFilterForArr2([1, 1, 2, 3, 3, 3, 3, 3]));
 
 function sum(arr) {
-	return arr.reduce((acc, num) => acc += num, 0)
+  return arr.reduce((acc, num) => (acc += num), 0);
 }
 function findEvenIndex(arr) {
-	let results = []
-	arr.forEach((num, idx) => {
-		results.push([sum(arr.slice(0, idx)), idx, sum(arr.slice(idx + 1))])
-	})
-	let output = results.filter(item => {
-		if (item[0] === item[2]) return item
-	})
-	return output.length ? output[0][1] : -1
+  let results = [];
+  arr.forEach((num, idx) => {
+    results.push([sum(arr.slice(0, idx)), idx, sum(arr.slice(idx + 1))]);
+  });
+  let output = results.filter((item) => {
+    if (item[0] === item[2]) return item;
+  });
+  return output.length ? output[0][1] : -1;
 }
 
 // console.log(findEvenIndex([20,10,-80,10,10,15,35]));
 
-
 function toRange(arr) {
-	let output = []
-	arr = [...new Set(arr.sort((a, b) => a - b))]
-	arr.map((item, idx) => {
-		if (idx === 0 && item + 1 === arr[idx + 1]) {
-			output.push(item + '_')
-			return item
-		}
-		if (idx === arr.length - 1) {
-			output.push('' + item)
-			return item
-		}
-		if (item + 1 !== arr[idx + 1] && !output.includes(arr[idx + 1] + '')) {
-			output.push(item + ',', arr[idx + 1] + '_')
-			return item
-		}
-	})
+  let output = [];
+  arr = [...new Set(arr.sort((a, b) => a - b))];
+  arr.map((item, idx) => {
+    if (idx === 0 && item + 1 === arr[idx + 1]) {
+      output.push(item + "_");
+      return item;
+    }
+    if (idx === arr.length - 1) {
+      output.push("" + item);
+      return item;
+    }
+    if (item + 1 !== arr[idx + 1] && !output.includes(arr[idx + 1] + "")) {
+      output.push(item + ",", arr[idx + 1] + "_");
+      return item;
+    }
+  });
 
-	return [...new Set(output)].join('')
+  return [...new Set(output)].join("");
 }
 
 // console.log(toRange([1, 3]));
@@ -2431,180 +2654,686 @@ function toRange(arr) {
 // console.log(toRange([1, 2, 3, 4, 5]));
 
 function longestConsec(strarr, k) {
-	if (k <= 0 || k > strarr.length) {
-		return ""
-	}
+  if (k <= 0 || k > strarr.length) {
+    return "";
+  }
 
-	let output = []
+  let output = [];
 
-	for (let i = 0; i < strarr.length; i++) {
-		let team = strarr.slice(i, i + k)
-		output.push(team.join(''))
-	}
+  for (let i = 0; i < strarr.length; i++) {
+    let team = strarr.slice(i, i + k);
+    output.push(team.join(""));
+  }
 
-	return output.find(str => str.length === Math.max(...output.map(str => str.length)))
+  return output.find(
+    (str) => str.length === Math.max(...output.map((str) => str.length))
+  );
 }
 
 // console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3));
 
-
 function scramble(str1, str2) {
-	if (str2.length > str1.length) return false
-	const resStr = str2
-	let outputStr = ""
-	str2.split('').forEach(letter => {
-		if (str1.includes(letter)) {
-			outputStr += letter
-			return
-		}
-	})
-	return resStr === outputStr
+  if (str2.length > str1.length) return false;
+  const resStr = str2;
+  let outputStr = "";
+  str2.split("").forEach((letter) => {
+    if (str1.includes(letter)) {
+      outputStr += letter;
+      return;
+    }
+  });
+  return resStr === outputStr;
 }
 // console.log(scramble("samdfghjklmoc", "commasdfghjklas"));
 // console.log(scramble('lckjemsrunwwkhbxkyqqwcmywuggwolbrebjmzoedozgmsaulrcqommayvsoudgbtcuidbmrmzqxeumlmbzmfiztvqkbzlgmrlmzjavinrynmddgtxhedwbalszxlsdyghyqcxkgyozekwnkugwqhtwwjdahnowhcrbsxgfhfyiwyjsmdjuynwjwkgvisrrjtcmhuzaqziiocgolvlafcwyjyqvzvvwqyvjfvuzoofysvelwfsvkjtezmqwoeoqdonnvarhurqnctrxykqabdfuecvkqkdfpzvxpuqauapblqehjkbsaekhcurkvbdloohqnrouuepbfghgnglgulnogkflafzu', 'lipuwksawcjpxvsfhykvtpqaeeclmikzckhihvqqljtyuwvldoinapysdcfyhpnadzkvulakfszhtaiwdygygwwmrjrslhyfntsxqcimbyi'));
 
 var findMedianSortedArrays = function (nums1, nums2) {
-	const nums = [...nums1, ...nums2].sort((a, b) => a - b)
-	if (nums.length % 2 !== 0) {
-		return nums[(nums.length - 1) / 2] + '.00000'
-	}
+  const nums = [...nums1, ...nums2].sort((a, b) => a - b);
+  if (nums.length % 2 !== 0) {
+    return nums[(nums.length - 1) / 2] + ".00000";
+  }
 
-	const output = (nums[(nums.length / 2) - 1] + nums[(nums.length / 2)]) / 2
-	return output.toString().length > 1 ? output.toString() + `${output.toString().includes('.') ? "" : "."}0000` : output.toString() + ".00000"
-}
+  const output = (nums[nums.length / 2 - 1] + nums[nums.length / 2]) / 2;
+  return output.toString().length > 1
+    ? output.toString() + `${output.toString().includes(".") ? "" : "."}0000`
+    : output.toString() + ".00000";
+};
 
 // console.log(findMedianSortedArrays([100002], [100000]))
 
-
 function order(words) {
-	if (!words.length) return ""
-	const sortedWords = words.split(' ').map((item) => {
-		return item.split("").map(str => parseInt(str)).find(item => !!item)
-	}).sort((a, b) => a - b)
+  if (!words.length) return "";
+  const sortedWords = words
+    .split(" ")
+    .map((item) => {
+      return item
+        .split("")
+        .map((str) => parseInt(str))
+        .find((item) => !!item);
+    })
+    .sort((a, b) => a - b);
 
-	const output = []
-	sortedWords.forEach((item, idx) => {
-		output.push(words.split(" ")[words.split(" ").findIndex(elem => elem.includes(item.toString()))])
-	})
-	return output.join("")
+  const output = [];
+  sortedWords.forEach((item, idx) => {
+    output.push(
+      words.split(" ")[
+        words.split(" ").findIndex((elem) => elem.includes(item.toString()))
+      ]
+    );
+  });
+  return output.join("");
 }
 
 // console.log(order("is2 Thi1s T4est 3a"));\
 
-const res = []
-let start = null
-let count = 1
-function tribonacci(signature, num){
-  if(count === 1) {
-	res.push(...signature)
+const res = [];
+let start = null;
+let count = 1;
+function tribonacci(signature, num) {
+  if (count === 1) {
+    res.push(...signature);
   }
-  if(count === num) return res.slice(0, num)
-  
-  let result = signature.reduce((acc, n) => acc+=n, 0)
-  res.push(result)
-  
-  count+=1
+  if (count === num) return res.slice(0, num);
 
-  return tribonacci([...signature.slice(1), result], num)
+  let result = signature.reduce((acc, n) => (acc += n), 0);
+  res.push(result);
+
+  count += 1;
+
+  return tribonacci([...signature.slice(1), result], num);
 }
 
 // console.log(tribonacci([0,0,1], 10));
 
 function persistence(num) {
-	let count = 0;
-	while(num.toString().length > 1){
-	  num = num.toString().split('').reduce((acc,el)=>acc *= +el,1)
-	  count++
-	}
-	return num
-}   
+  let count = 0;
+  while (num.toString().length > 1) {
+    num = num
+      .toString()
+      .split("")
+      .reduce((acc, el) => (acc *= +el), 1);
+    count++;
+  }
+  return num;
+}
 // console.log(persistence(2));
 
-function upArray(arr){
-	if(arr.find( n => n <= -1)) return null
-	const start = arr.findIndex(n => n > 0)
-	const zeros = arr.slice(0, start)
+function upArray(arr) {
+  if (arr.find((n) => n <= -1)) return null;
+  const start = arr.findIndex((n) => n > 0);
+  const zeros = arr.slice(0, start);
 
-	const result = (((+arr.join(''))+1)+'').split('').map(n => +n)
-	if(result.length === arr.length && !zeros.length) return result
-	zeros.push(...result)
-	return zeros
+  const result = (+arr.join("") + 1 + "").split("").map((n) => +n);
+  if (result.length === arr.length && !zeros.length) return result;
+  zeros.push(...result);
+  return zeros;
 }
 // console.log(upArray([1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0]))
 
 function countPairsInt(diff, nMax) {
-	const nums = []
-	for(let i = 2; i < nMax; i++) {
-		if(i+diff >= nMax) continue
-		nums.push([i, i+diff])
-	}
-	return nums.filter(pair => {
-		const pairDivisors = {
-			res1: 0,
-			res2: 0
-		}
+  const nums = [];
+  for (let i = 2; i < nMax; i++) {
+    if (i + diff >= nMax) continue;
+    nums.push([i, i + diff]);
+  }
+  return nums.filter((pair) => {
+    const pairDivisors = {
+      res1: 0,
+      res2: 0,
+    };
 
-		for (let i = 1; i <= pair[1]; i++) {
-			if(Number.isInteger(pair[0] / n)){
-				pairDivisors.res1+=1
-			}
-			if(Number.isInteger(pair[1] / n)){
-				pairDivisors.res2+=1
-			}
-		}
-		return pairDivisors.res1 === pairDivisors.res2
-	}).length
+    for (let i = 1; i <= pair[1]; i++) {
+      if (Number.isInteger(pair[0] / n)) {
+        pairDivisors.res1 += 1;
+      }
+      if (Number.isInteger(pair[1] / n)) {
+        pairDivisors.res2 += 1;
+      }
+    }
+    return pairDivisors.res1 === pairDivisors.res2;
+  }).length;
 }
 
 // console.log(countPairsInt(6, 350));
 
 function findUs(n1, n2, k, primeFactors, digits) {
-	const max = n1 + k*n2
-	const nums = []
-	for (let i = n1; i < max; i++) {
+  const max = n1 + k * n2;
+  const nums = [];
+  for (let i = n1; i < max; i++) {
+    if (i > max) {
+      continue;
+    }
+    if (!digits.every((d) => i.toString().includes(d))) {
+      continue;
+    }
+    if (!primeFactors.every((p) => Number.isInteger(i / p))) {
+      continue;
+    }
 
-		if(i > max) {
-			continue
-		}
-		if(!digits.every(d => i.toString().includes(d))) {
-			continue
-		}
-		if(!primeFactors.every(p => Number.isInteger(i / p))) {
-			continue
-		}
-
-		if( i < max && digits.every(d => i.toString().includes(d)) && primeFactors.every(p => Number.isInteger(i / p))){
-			nums.push(i)
-		} 
-	}
-	return nums
+    if (
+      i < max &&
+      digits.every((d) => i.toString().includes(d)) &&
+      primeFactors.every((p) => Number.isInteger(i / p))
+    ) {
+      nums.push(i);
+    }
+  }
+  return nums;
 }
 
 // console.log(findUs(30, 90, 4, [2,3], [6,2]));>p
 
 const getDataFromJP = async () => {
-	const results = []
-	await fetch('https://jsonplaceholder.typicode.com/todos/1')
-	.then(res => res.json()).then(data => {results.push(data)})
-	.then(r => 
-		fetch('https://jsonplaceholder.typicode.com/todos/2')
-		.then(res => res.json()).then(data => {results.push(data)}))    
-	console.log(results);
-}
+  const results = [];
+  await fetch("https://jsonplaceholder.typicode.com/todos/1")
+    .then((res) => res.json())
+    .then((data) => {
+      results.push(data);
+    })
+    .then((r) =>
+      fetch("https://jsonplaceholder.typicode.com/todos/2")
+        .then((res) => res.json())
+        .then((data) => {
+          results.push(data);
+        })
+    );
+  console.log(results);
+};
 
 // console.log(getDataFromJP());
-function fn () {
-	const test = () => {
-		return this
-	}
-	return test()
+function fn() {
+  const test = () => {
+    return this;
+  };
+  return test();
 }
 
 const fib = (n) => {
-	if(n <= 1) {
-		return n
-	}
-	return fib(n - 1) + fib(n - 2)
+  if (n <= 1) {
+    return n;
+  }
+  return fib(n - 1) + fib(n - 2);
+};
+
+// console.log(fib(45));
+
+Array.prototype.flat = function (depth) {
+  "use strict";
+
+  if (depth === undefined) {
+    depth = 1;
+  }
+
+  var flatten = function (arr, depth) {
+    if (depth < 1) {
+      return arr.slice();
+    }
+
+    return arr.reduce(function (acc, val) {
+      return acc.concat(Array.isArray(val) ? flatten(val, depth - 1) : val);
+    }, []);
+  };
+
+  return flatten(this, depth);
+};
+
+let countDepp = 0;
+
+function deepCount(a) {
+  if (a.some((item) => Array.isArray(item))) {
+    count += 1;
+    return deepCount(a.flat(1));
+  }
+  console.log(a, count);
+  return count + a.length;
 }
 
-console.log(fib(45));
+// console.log(deepCount([[[[[[[[[]]]]]]]]]));
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function (s) {
+  let output = "";
+  s = s.split("");
+  s.forEach((string, idx) => {
+    let sliceN = 1;
+    s.forEach((str) => {
+      const tmpStr = string + s.join("").slice(idx + 1, sliceN);
+      if (
+        tmpStr.length < output.length ||
+        tmpStr !== tmpStr.split("").reverse().join("")
+      ) {
+        sliceN += 1;
+        return;
+      }
+      output = tmpStr;
+      sliceN += 1;
+    });
+  });
+  if (output.length) {
+    return output;
+  }
+  return s.join("")[0];
+};
+
+// console.log(longestPalindrome("ccc"))s
+
+const fetching = (url) => {
+  console.log("response from", url);
+};
+
+const debounce = (callback, delay) => {
+  let timer;
+  return (...args) => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      callback(...args);
+    }, delay);
+  };
+};
+
+const getRes = debounce(fetching, 100);
+
+// getRes("api");
+// getRes("api");
+// getRes("api");
+// getRes("api");
+// getRes("api");
+// getRes("api");
+// getRes("restfull api");
+// getRes("graphql");
+
+const bindedFunc = function (args) {
+  console.log(this, args);
+};
+
+const user = {
+  name: "oskar",
+};
+
+// bindedFunc.bind(user, "user").call({ call: "call" }, "ne user");
+
+const tree = {
+  value: 1,
+  children: [
+    {
+      value: 2,
+      children: [{ value: 3 }],
+    },
+    {
+      value: 4,
+      children: [{ value: 5 }, { value: 6 }],
+    },
+    {
+      value: 7,
+      children: [{ value: 8 }, { value: 9, children: [{value: 10}] }],
+    },
+  ],
+};
+
+const getTreeValues = (tree) => {
+
+  const result = [tree.value];
+  const stack = [...tree.children];
+
+
+  while(stack.length) {
+    const node = stack.pop();
+
+    if (node?.children?.length) {
+      stack.push(...node.children);
+      result.push(node.value);
+      continue;
+    }
+
+    result.push(node.value);
+  }
+
+  return result;
+}
+
+// console.log(getTreeValues(tree))
+
+// const getTreeValues = (tree) => {
+//   const output = [];
+//   const stack = [tree];
+
+//   while(stack.length) {
+//     const currentNode = stack.pop();
+
+
+//     if(currentNode?.children) {
+//       stack.push(...currentNode.children);
+//     };
+
+//     output.push(currentNode.value);
+//   };
+
+//   return output
+// };
+
+// console.log(getTreeValues(tree));
+
+const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec consectet" + 
+"ur risus. Cras vel urna a tellus dapibus consequat. Duis bibendum tincidunt viverra. Ph" + 
+"asellus dictum efficitur sem quis porttitor. Mauris luctus auctor diam id ultrices. Pra" + 
+"esent laoreet in enim ut placerat. Praesent a facilisis turpis."
+
+function format(text, width) {
+  const arr = text.split(' ')
+  const output = []
+  let tmpLine = ''
+  
+  arr.forEach((word, idx) => {
+    if(idx === arr.length - 1) {
+      if((tmpLine + word).length + 1 <= width) {
+        output.push(tmpLine + ' ' + word)
+        return
+      }
+      output.push(tmpLine, word)
+      return
+    }
+    if((tmpLine + word + tmpLine.split(' ').length).length > width) {
+      output.push(tmpLine)
+      tmpLine = word
+      return
+    }
+
+    tmpLine += idx !== 0 ? ' ' + word : word
+  })
+  
+  return output.join(' \n ')
+}
+
+// console.log(format(text, 50))
+// console.log(format('Loremipsum dolorsita.', 10))
+
+function addTwoNumbers (l1, l2) {
+  const result = [];
+  l1 = l1.reverse()
+  for(let idx = 0; idx < l1.length; idx++){
+      const num = l1[idx]
+      const num2 = l2[idx]
+
+      if(num2 === undefined) {
+        if(num >= 10) {
+          if(l1[idx+1] === undefined) l1[idx+1] = 1
+          else l1[idx+1] += 1
+
+          result.push(+(num.toString()[1]))
+          continue
+        }
+        else result.push(num)
+        continue
+      }
+
+      const sum = num + num2
+      
+      if(sum >= 10) {
+          l1[idx+1] += 1
+          result.push(+(sum.toString()[1]))
+          continue
+      }
+      result.push(sum)
+  }
+  return result
+};
+
+// console.log(addTwoNumbers([10], [9]))
+
+const numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]
+let operationCount = 0;
+
+const binarySerach2 = (array, target) => {
+  let left = 0;
+  let right = array.length;
+  let position = -1;
+  let found = false
+  let mid;
+
+  while(!found && left <= right) {
+    operationCount += 1
+    mid = Math.floor((left + right)/ 2)
+    console.log(mid, left, right);
+
+    if(array[mid] === target) {
+      found = true
+      position = mid
+
+      return position
+    }
+
+    if(array[mid] > target) {
+      right = mid - 1
+    } else {
+      left = mid + 1
+    }
+  }
+
+  return position
+} 
+
+// console.log(binarySerach2(numbers, 40));
+
+const unSortedarray = [3,6,8,1,0,4,5,5,7]
+
+const selectionSort = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    let minIndex = i
+    for (let j = i+1; j < array.length; j++) {
+      if(array[j] < array[minIndex]) {
+        minIndex = j
+      }
+    }
+
+    let prevNum = array[i]
+    array[i] = array[minIndex]
+    array[minIndex] = prevNum
+  }
+
+  return array
+}
+   
+// console.log(selectionSort(unSortedarray));
+
+var sortColors = function(nums) {
+  if(nums.length <= 1) return nums
+  let left = [];
+  let right = [];
+  let newArray = [];
+  let pivot = nums.pop();
+
+  for(let i = 0; i < nums.length; i++) {
+      if(nums[i] <= pivot) {
+          left.push(nums[i])
+      } else right.push(nums[i])
+  }
+
+  return newArray.concat(sortColors(left), pivot, sortColors(right))
+};
+
+// console.log(sortColors([2,0,2,1,1,0]));
+
+const reverse = (arr) => {
+  const output = []
+  for(let i = arr.length - 1; i > 0; i--) {
+      if(arr[i] === '(' || arr[i] === ')') {
+          continue
+      }
+      output.push(arr[i])
+  }
+  
+  return output
+}
+
+function reverseBrackets(inputString) {
+  let result = inputString.split('')
+
+  while(result.includes(')') || result.includes('(')) {
+      const start = result.indexOf('(')
+      const end = result.lastIndexOf(')')
+       
+      result = [
+        ...result.slice(0, start),
+        ...reverse(result.slice(start, end)),
+        ...result.slice(end + 1)
+      ]
+  }
+  
+  return result.join('')
+}
+
+
+// console.log(reverseBrackets('foo(bar)baz'));
+
+
+var rotate = function(nums, k) {
+  while(k) {
+    const lastNum = nums.pop();
+    nums.unshift(lastNum)
+    k--;
+  }
+
+  return nums;
+};
+
+// console.log(rotate([...'1 2 3 4 5 6 7 8 9'.repeat(1000000).split(' ')], 1200));
+
+
+function useCounter () {
+  let count = 0;
+
+  function inc () {
+    count++
+  }
+
+  function dec () {
+    count--
+  }
+
+  return {
+    count,
+    inc, 
+    dec
+  }
+}
+ 
+const tet = {
+  name: 'shtefan',
+  set: new Set([1,2,1]),
+  obj: {
+    id: 1
+  }
+}
+
+const clondeByJson = JSON.parse(JSON.stringify(tet))
+// const cloned = structuredClone(tet)
+
+// tet.name ='oskar'
+// tet.obj.id = 2
+
+
+const map = (arr, callback) => {
+
+  return arr.reduce((res, item, idx, array) => {
+    res.push(callback(item, idx, array))
+    return res
+  }, [])
+}
+
+const filter = (arr, callback) => {
+
+  return arr.reduce((res, item, idx, array) => {
+    if(callback(item, idx, array)) { 
+      res.push(item)
+    }
+    return res
+  }, [])
+}
+
+// console.log( map([1,2,3], (item) => item + 1 ) );
+
+// console.log( filter([1,2,3], (item) => item > 2 ) );
+
+
+const promiseAll = (promises) => {
+  let responses = [];
+  let resolvesCount = 0
+
+  return new Promise((resolve, reject) => {
+    promises.forEach(async (promise, i) => {
+        promise.then(res => {
+          responses[i] = res
+          resolvesCount += 1
+
+          if(resolvesCount === promises.length) resolve(responses)
+      }).catch(err => reject(err))
+    });
+  });
+};
+
+
+let p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('1');
+  }, 100);
+});
+
+let p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('5');
+  }, 500);
+});
+
+// promiseAll([p2, p1]).then(
+//   (res, test) => {
+//     console.log("Response => ", res);
+//   }
+// ).catch(err => console.log(err));
+var lengthOfLongestSubstring = function(s) {
+  let string = '';
+  let tmpString = ''
+  let count = 0;
+
+  s.split('').forEach((char, idx, array) => {
+    if(!string.includes(char) && count === string.length) {
+      string+=char;
+      count += 1;
+      return;
+    }
+    
+    if (tmpString.length < string.length) tmpString = string;
+
+    const from = string.split('').findIndex(c => c === char);
+    if (string[string.length - 1] !== char) string = string.slice(from + 1) + char;
+    else string = char;
+    count = 1;
+  })
+
+  return tmpString.length > string.length ? tmpString.length : string.length;
+};
+
+
+// console.log(lengthOfLongestSubstring('ohomm'));
+// console.log(lengthOfLongestSubstring('cdd'));
+// console.log(lengthOfLongestSubstring('dvdf'));
+// console.log(lengthOfLongestSubstring('bbbbb'));
+// console.log(lengthOfLongestSubstring("abcabcbbkafgl"));
+// console.log(lengthOfLongestSubstring("abcabcbb"));
+
+var rotate = function(matrix) {
+  const matrixCopy = JSON.parse(JSON.stringify(matrix));
+
+  matrix.forEach((array, index) => {
+    array.forEach((n, i) => {
+      array[i] = matrixCopy[matrix.length - 1 - i][index]
+    })
+  })
+
+  return matrix;
+};
+
+// console.log(rotate([[1,2,3], [4,5,6], [7,8,9]]));
+// console.log(rotate([[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]));
